@@ -4,7 +4,7 @@ import Nav from './Nav';
 import MainBanner from './MainBanner';
 function App() {
   return (
-    <div className="w-screen min-h-screen bg-zinc-800 flex flex-col items-start justify-center">
+    <div className="w-screen min-h-screen bg-black flex flex-col items-start justify-center">
       <Nav />
       <MainBanner />
     </div>
