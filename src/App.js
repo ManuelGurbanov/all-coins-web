@@ -2,11 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './Nav';
 import MainBanner from './MainBanner';
+import BuyCoins from './BuyCoins';
 function App() {
   return (
-    <div className="w-screen min-h-screen bg-black flex flex-col items-start justify-center">
+    <div className="max-w-screen min-h-screen bg-black flex flex-col items-start justify-start">
       <Nav />
-      <MainBanner />
+      <MainBanner/>
+      <BuyCoins/>
     </div>
   );
 }
