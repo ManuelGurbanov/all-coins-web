@@ -5,7 +5,7 @@ import MainBanner from './MainBanner';
 import BuyCoins from './BuyCoins';
 function App() {
   return (
-    <div className="max-w-screen min-h-screen bg-black flex flex-col items-start justify-start">
+    <div className="max-w-screen min-h-screen bg-zinc-800 flex flex-col items-start justify-start">
       <Nav />
       <MainBanner/>
       <BuyCoins/>
