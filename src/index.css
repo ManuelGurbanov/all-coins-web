@@ -14,3 +14,8 @@ body {
 code {
   font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+.bg-gradient {
+  background: rgb(98,16,126);
+  background: radial-gradient(circle, rgba(98,16,126,1) 0%, rgba(190,84,227,1) 100%);
+}

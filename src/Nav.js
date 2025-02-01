@@ -6,13 +6,13 @@ export default function Nav() {
             <img className="h-full" src="logo.webp">
             </img>
             <div className="items-center space-x-4 hidden sm:flex">
-                <a href="#" className="text-white hover:scale-105 transition-all duration-75">
+                <a href="#" className="text-white hover:text-p1 transition-all duration-75">
                     Inicio
                 </a>
-                <a href="#" className="text-white hover:scale-105 transition-all duration-75">
+                <a href="#" className="text-white hover:text-p1 transition-all duration-75">
                     Sobre Nosotros
                 </a>
-                <a href="#" className="text-white hover:scale-105 transition-all duration-75">
+                <a href="#" className="text-white hover:text-p1 transition-all duration-75">
                     Comprar
                 </a>
             </div>
