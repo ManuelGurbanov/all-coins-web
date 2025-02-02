@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Payment from './Payment';
+import ShopTutorial from "./ShopTutorial";
 export default function BuyCoins() {
     const [price, setPrice] = useState(250000);
 
@@ -35,7 +36,7 @@ export default function BuyCoins() {
     };
 
     const openWhatsApp = () => {
-        const message = `Hola ¿qué tal?, quiero saber si se encuentran disponibles ${formatPrice(price)} para ${platformSelected === "PS" ? "PS4" : platformSelected === "XB" ? "xbox" : "PC"}.`;
+        const message = `Hola ¿qué tal? Quería saber si se encuentran disponibles ${formatPrice(price)} para ${platformSelected === "PS" ? "PS4" : platformSelected === "XB" ? "xbox" : "PC"}. Gracias!`;
         const encodedMessage = encodeURIComponent(message);
         const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         window.open(url, "_blank");
@@ -46,13 +47,9 @@ export default function BuyCoins() {
     return (
         <section className=" flex flex-col items-center justify-start w-full">
             {/* Fila de Seleccion de Precio y Tutorial */}
-            <div className="bg-white w-full flex items-center justify-start flex-col sm:flex-row sm:px-8 sm:py-2 sm:gap-4">
+            <div className="bg-white w-full flex items-start justify-center flex-col sm:flex-row sm:px-8 sm:py-2 sm:gap-4">
 
-                <div className="sm:w-2/3 w-screen flex gap-2 items-center justify-center sm:mt-6 flex-col text-white sm:text-3xl text-2xl font-semibold bg-zinc-900 ring-2 ring-white sm:rounded-xl p-4 sm:h-80 h-36 relative">
-                    <h1 className="w-full text-center z-30">- Seleccioná tu <span className="text-p1">plataforma</span></h1>
-                    <h1 className="w-full text-center z-30">- Elegí el monto de compra</h1>
-                    <h1 className="w-full text-center z-30">- Presiona comprar!</h1>
-                </div>
+                <ShopTutorial/>
 
                 <div className="p-4 bg-zinc-900 sm:rounded-xl flex items-center justify-start flex-col sm:mt-6 sm:w-1/3 w-full h-80 ring-2 ring-p1">
                     
@@ -176,25 +173,6 @@ export default function BuyCoins() {
                     </div>
                 </div>
             </div>
-
-            <div className="bg-white w-full flex items-center justify-start flex-col-reverse sm:flex-row sm:px-8 sm:py-2 sm:gap-4 mb-4">
-
-                <div className="sm:w-1/4 w-screen sm:mt-0 mt-4">
-                    <Payment/>
-                </div>
-
-                {/* Banner Secundario */}
-                <div className="sm:w-3/4 w-screen flex items-center justify-center flex-col text-white sm:text-3xl text-2xl font-semibold bg-zinc-900 ring-2 ring-white sm:rounded-xl p-4 sm:h-80 h-36 relative">
-                        <h1 className="w-full text-center z-30">✅Entrega rápida</h1>
-                        <h1 className="w-full text-center z-30">✅Sin riesgo de baneo</h1>
-                        <h1 className="w-full text-center z-30">✅Mejor precio del mercado</h1>
-
-                        <img className="absolute top-0 left-0 w-full h-full object-cover sm:rounded-xl z-10" src="bg.webp" alt="bg">
-                        </img>
-                </div>
-
-            </div>
-
 
         </section>
     );
