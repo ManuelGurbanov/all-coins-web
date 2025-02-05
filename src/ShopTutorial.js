@@ -11,21 +11,21 @@ export default function ShopTutorial() {
     ];
 
     return (
-        <div className="sm:w-1/2 h-96 w-screen flex flex-row gap-2 items-center justify-center sm:mt-6 text-white sm:text-lg font-semibold bg-zinc-900 ring-2 ring-white sm:rounded-xl p-2 relative">
+        <div className="lg:w-2/3 md:w-5/6 h-96 w-screen flex flex-row gap-2 items-center justify-center md:mt-6 text-white sm:text-lg font-semibold bg-zinc-900 ring-2 ring-white sm:rounded-xl p-2 relative">
             
             {/* Sección Izquierda */}
-            <section className="w-1/2 h-auto flex flex-col items-start justify-start gap-4 mb-3">
+            <section className="w-1/2 h-auto flex flex-col items-center justify-start gap-4 mb-3">
                 <h1 className="font-bold text-white text-base w-full text-center mt-2">¿CÓMO COMPRAR?</h1>
                 {steps.map((step) => (
                     <div 
                         key={step.id} 
                         onClick={() => setActiveStep(step.id)} 
-                        className={`w-full h-16 px-2 py-1 flex flex-col items-start justify-center rounded-2xl cursor-pointer transition-all duration-300
+                        className={`w-5/6 h-16 px-2 py-1 flex flex-col items-start justify-center rounded-2xl cursor-pointer transition-all duration-300
                             ${activeStep === step.id ? "bg-zinc-800 ring-2 ring-p1 scale-105" : "bg-zinc-950 ring-1 ring-p1"}
                         `}
                     >
                         <h1 className="font-semibold text-p1 text-base">PASO {step.id}</h1>
-                        <h1 className="font-medium text-white sm:text-sm text-xs">{step.title}</h1>
+                        <h1 className="font-medium text-white text-xs lg:text-md">{step.title}</h1>
                     </div>
                 ))}
             </section>

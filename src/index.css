@@ -19,3 +19,17 @@ code {
   background: rgb(98,16,126);
   background: radial-gradient(circle, rgba(98,16,126,1) 0%, rgba(190,84,227,1) 100%);
 }
+
+.stadium-bg{
+  background-image: url('stadium_bg.webp');
+}
+
+.fifa-bg {
+  background-image: url('fifa_bg.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+

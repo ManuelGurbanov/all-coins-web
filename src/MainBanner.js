@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MainBanner () {
     return (
-        <div className="w-full h-60vh bg-zinc-800 flex items-center justify-center text-white mt-12 relative">
+        <div className="w-full min-h-60vh flex items-center justify-center text-black mt-12 relative bg-white">
             <section className="flex flex-col gap-0 sm:flex-row items-center justify-center mb-6">
                 <img src="logo.webp" className="sm:w-64 w-32 z-20">
                 </img>

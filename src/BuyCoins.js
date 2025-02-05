@@ -47,14 +47,14 @@ export default function BuyCoins() {
     return (
         <section className=" flex flex-col items-center justify-start w-full">
             {/* Fila de Seleccion de Precio y Tutorial */}
-            <div className="bg-white w-full flex items-start justify-center flex-col sm:flex-row sm:px-8 sm:py-2 sm:gap-4">
+            <div className="bg-white w-full flex items-center justify-center flex-col lg:flex-row gap-0 lg:px-8 lg:py-2 lg:gap-4">
 
                 <ShopTutorial/>
 
-                <div className="p-4 bg-zinc-900 sm:rounded-xl flex items-center justify-start flex-col sm:mt-6 sm:w-1/3 w-full h-80 ring-2 ring-p1">
+                <div className="lg:w-2/3 md:w-5/6 h-96 w-screen flex flex-col gap-2 items-center justify-center lg:mt-6 text-white sm:text-lg font-semibold bg-zinc-900 ring-2 ring-white sm:rounded-xl p-2 relative">
                     
-                    <div className="w-full flex flex-row items-center justify-between gap-0 mb-3">
-                        <h1 className="text-p1 mt-1 mb-2 font-bold text-2xl w-full text-right">Hacé tu pedido</h1>  
+                    <div className="w-full flex flex-col md:flex-row md:px-5 items-center justify-center md:justify-between gap-0 mb-3">
+                        <h1 className="text-p1 mt-1 mb-2 font-bold text-3xl w-full text-center md:text-right md:text-4xl">Hacé tu pedido</h1>  
                         <div className="w-full flex flex-row items-center justify-center gap-0">
 
                         <div 
@@ -102,7 +102,7 @@ export default function BuyCoins() {
 
                     
                         
-                    <hr className="w-full bg-zinc-500"></hr>
+                    <hr className="w-full bg-zinc-500 hidden lg:block"></hr>
                     <div className="w-full px-4">
                         <div className="flex items-center flex-col justify-center mt-2 w-full"> 
                             <span className="text-white text-4xl font-bold">
@@ -165,7 +165,7 @@ export default function BuyCoins() {
                         <div className="mt-8 flex items-center justify-center w-full">
                             <button
                                 onClick={openWhatsApp}
-                                className="px-6 py-3 bg-p1 text-white rounded-full hover:bg-p2 transition"
+                                className="px-6 py-3 bg-p1 text-white ring-1 ring-white rounded-full hover:bg-p2 transition"
                             >
                                 Comprar <strong>${calculatePriceInARS().toLocaleString()} ARS</strong>
                             </button>
