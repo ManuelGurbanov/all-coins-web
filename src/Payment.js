@@ -14,9 +14,9 @@ export default function Payment() {
 
   return (
     <div className="flex flex-col items-center justify-start w-full sm:mt-12 stadium-bg">
-      <article className="flex flex-col items-center justify-center w-full sm:w-2/3 h-full text-p1 gap-3 mb-12 rounded-2xl">
-        <h1 className="text-3xl font-bold mb-8 mt-12">Metodos de Pago</h1>
-        <div className="grid sm:grid-cols-4 grid-cols-3 gap-0 justify-center items-center w-full h-auto p-4 ring-2 ring-p1 bg-black">
+      <article className="flex flex-col items-center justify-center w-4/5 sm:w-2/3 h-full text-p1 gap-3 mb-12 rounded-2xl" data-aos="fade-up">
+        <h1 className="text-3xl font-bold mb-3 mt-12">Metodos de Pago</h1>
+        <div className="grid sm:grid-cols-4 grid-cols-3 gap-0 justify-center items-center w-full h-auto p-4 ring-p1 bg-zinc-900 rounded-2xl">
           {Array.from({ length: 11 }).map((_, index) => (
             <div key={index} className="flex items-center justify-center">
               <img className={imgClass} src={`payments/payment${index + 1}.webp`} alt={`Método de pago ${index + 1}`} />
@@ -25,7 +25,7 @@ export default function Payment() {
         </div>
       </article>
 
-      <article className="flex flex-col items-center justify-center w-full sm:w-2/3 h-full text-p1 mb-12 rounded-2xl">
+      <article className="flex flex-col items-center justify-center w-full sm:w-2/3 h-full text-p1 mb-12 rounded-2xl" data-aos="fade-up">
           <h1 className="text-3xl font-bold mt-6 w-full text-center">¡Consultá por nuestro Servicio de Boosting!</h1>
           <p className="text-lg font-normal mt-2 mb-8 w-full text-center text-white">Conseguimos ese rango al que te cuesta llegar</p>
           <div className="w-full flex gap-4 p-7 sm:h-64 h-32 items-center justify-center">

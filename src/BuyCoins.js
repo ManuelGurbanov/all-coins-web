@@ -47,7 +47,7 @@ export default function BuyCoins() {
     return (
         <section className=" flex flex-col items-center justify-start w-full">
             {/* Fila de Seleccion de Precio y Tutorial */}
-            <div className="bg-white w-full flex items-center justify-center flex-col lg:flex-row gap-0 lg:px-8 lg:py-2 lg:gap-4">
+            <div className="bg-white w-full flex items-center justify-center flex-col lg:flex-row gap-0 lg:px-8 lg:py-2 lg:gap-4" data-aos="fade-up" data-aos-delay="300">
 
                 <ShopTutorial/>
 
@@ -165,7 +165,7 @@ export default function BuyCoins() {
                         <div className="mt-8 flex items-center justify-center w-full">
                             <button
                                 onClick={openWhatsApp}
-                                className="px-6 py-3 bg-p1 text-white ring-1 ring-white rounded-full hover:bg-p2 transition"
+                                className="px-6 py-3 bg-p1 text-white ring-1 ring-white rounded-full hover:scale-105 duration-75 ease-in-out"
                             >
                                 Comprar <strong>${calculatePriceInARS().toLocaleString()} ARS</strong>
                             </button>

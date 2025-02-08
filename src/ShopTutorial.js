@@ -20,11 +20,11 @@ export default function ShopTutorial() {
                     <div 
                         key={step.id} 
                         onClick={() => setActiveStep(step.id)} 
-                        className={`w-5/6 h-16 px-2 py-1 flex flex-col items-start justify-center rounded-2xl cursor-pointer transition-all duration-300
+                        className={`w-5/6 h-16 px-2 py-1 flex flex-col items-start justify-start rounded-2xl cursor-pointer transition-all duration-300
                             ${activeStep === step.id ? "bg-zinc-800 ring-2 ring-p1 scale-105" : "bg-zinc-950 ring-1 ring-p1"}
                         `}
                     >
-                        <h1 className="font-semibold text-p1 text-base">PASO {step.id}</h1>
+                        <h1 className="font-black text-p1 text-base">PASO {step.id}</h1>
                         <h1 className="font-medium text-white text-xs lg:text-md">{step.title}</h1>
                     </div>
                 ))}
