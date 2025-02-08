@@ -2,7 +2,8 @@ import React from "react";
 
 export default function MainBanner () {
     return (
-        <div className="w-full min-h-60vh flex items-center justify-center text-black mt-12 relative bg-white" data-aos="fade-up">
+        <>
+        <div className="w-full min-h-60vh hidden sm:flex items-center justify-center text-black mt-12 relative bg-white" data-aos="fade-up">
             <section className="flex flex-col gap-0 sm:flex-row items-center justify-center mb-6">
                 <img src="logo.webp" className="sm:w-64 w-32 z-20">
                 </img>
@@ -17,5 +18,9 @@ export default function MainBanner () {
                 </img> */}
             </section>
         </div>
+
+        <img className="block sm:hidden h-screen w-full object-cover" src="phoneBanner.webp" alt="bg" data-aos="fade-up">
+        </img>
+        </>
     );
 }

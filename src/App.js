@@ -10,7 +10,7 @@ import Footer from "./Footer";
 
 function Layout({ children }) {
   return (
-    <div className="max-w-screen overflow-hidden min-h-screen bg-white flex flex-col items-start justify-start">
+    <div className="max-w-screen overflow-hidden min-h-screen sm:bg-white bg-black flex flex-col items-start justify-start">
       <Nav />
       <div className="flex-grow w-full">{children}</div>
       <Footer />
