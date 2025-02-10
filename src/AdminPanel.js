@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { db, storage } from "./firebaseConfig";
+import { db } from "./firebaseConfig";
 import { collection, getDocs, deleteDoc, doc, addDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function AdminPanel() {
     const [offers, setOffers] = useState([]);
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [newOffer, setNewOffer] = useState({ buy: "", take: "" });
-    const [image, setImage] = useState(null);
+    const [newOffer, setNewOffer] = useState({ buy: "", take: "", imageUrl: "" });
     const [loading, setLoading] = useState(false);
 
     const fetchOffers = async () => {
@@ -36,29 +34,22 @@ export default function AdminPanel() {
     };
 
     const addOffer = async () => {
-        if (!newOffer.buy || !newOffer.take || !image) {
-            alert("Completa todos los campos y sube una imagen.");
+        if (!newOffer.buy || !newOffer.take || !newOffer.imageUrl) {
+            alert("Completa todos los campos.");
             return;
         }
 
         setLoading(true);
 
         try {
-            // Subir imagen a Firebase Storage
-            const imageRef = ref(storage, `players/${image.name}`);
-            await uploadBytes(imageRef, image);
-            const imageUrl = await getDownloadURL(imageRef);
-
             // Agregar oferta a Firestore con la URL de la imagen
             await addDoc(collection(db, "offers"), {
                 buy: newOffer.buy,
                 take: newOffer.take,
-                player: imageUrl
+                player: newOffer.imageUrl
             });
 
-            // Resetear estados
-            setNewOffer({ buy: "", take: "" });
-            setImage(null);
+            setNewOffer({ buy: "", take: "", imageUrl: "" });
             fetchOffers();
             alert("Oferta agregada con éxito");
         } catch (error) {
@@ -117,9 +108,11 @@ export default function AdminPanel() {
                             onChange={(e) => setNewOffer({ ...newOffer, take: e.target.value })}
                         />
                         <input
-                            type="file"
-                            onChange={(e) => setImage(e.target.files[0])}
-                            className="mb-2 w-full p-2 rounded bg-zinc-700"
+                            className="p-2 mb-2 w-full rounded bg-zinc-700"
+                            type="text"
+                            placeholder="URL de la Imagen"
+                            value={newOffer.imageUrl}
+                            onChange={(e) => setNewOffer({ ...newOffer, imageUrl: e.target.value })}
                         />
                         <button
                             className={`bg-blue-500 w-full py-2 rounded hover:bg-blue-600 ${
@@ -128,7 +121,7 @@ export default function AdminPanel() {
                             onClick={addOffer}
                             disabled={loading}
                         >
-                            {loading ? "Subiendo..." : "Agregar Oferta"}
+                            {loading ? "Guardando..." : "Agregar Oferta"}
                         </button>
                     </div>
 
