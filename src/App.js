@@ -7,10 +7,11 @@ import MainBanner from "./MainBanner";
 import BuyCoins from "./BuyCoins";
 import Payment from "./Payment";
 import Footer from "./Footer";
+import AdminPanel from "./AdminPanel";
 
 function Layout({ children }) {
   return (
-    <div className="max-w-screen overflow-hidden min-h-screen sm:bg-white bg-black flex flex-col items-start justify-start">
+    <div className="max-w-screen overflow-hidden min-h-screen bg-black flex flex-col items-start justify-start">
       <Nav />
       <div className="flex-grow w-full">{children}</div>
       <Footer />
@@ -58,6 +59,7 @@ function App() {
         <Route path="/home" element={<Layout><Home /></Layout>} />
         <Route path="/sobre-nosotros" element={<Layout><AboutUs /></Layout>} />
         <Route path="/vender-monedas" element={<Layout><SellCoins /></Layout>} />
+        <Route path="/admin-panel" element={<Layout><AdminPanel /></Layout>} />
       </Routes>
     </Router>
   );
