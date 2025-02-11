@@ -8,7 +8,7 @@ import BuyCoins from "./BuyCoins";
 import Payment from "./Payment";
 import Footer from "./Footer";
 import AdminPanel from "./AdminPanel";
-
+import DataBlock from "./DataBlock";
 function Layout({ children }) {
   return (
     <div className="max-w-screen overflow-hidden min-h-screen bg-black flex flex-col items-start justify-start">
@@ -25,13 +25,14 @@ function Home() {
       <MainBanner/>
       <BuyCoins/>
       <Payment />
+      <DataBlock />
     </>
   );
 }
 
 function AboutUs() {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-start mt-20">
+    <div className="w-full min-h-screen flex flex-col items-center justify-start mt-20 text-white">
       <h1 className="text-4xl font-bold" data-aos="fade-up">Sobre Nosotros</h1>
     </div>
   );
@@ -39,7 +40,7 @@ function AboutUs() {
 
 function SellCoins() {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-start mt-20">
+    <div className="w-full min-h-screen flex flex-col items-center justify-start mt-20 text-white">
       <h1 className="text-4xl font-bold">Vendé tus Monedas</h1>
     </div>
   );
