@@ -41,9 +41,9 @@ export default function BuyCoins() {
     
 
     const calculateBonusCoins = () => {
-        if (price >= 1000000) return 200000;
-        if (price >= 500000) return 50000;
-        if (price >= 300000) return 20000;
+        if (price >= 1000000) return "200K";
+        if (price >= 500000) return "50K";
+        if (price >= 300000) return "20K";
         return 0;
     };
 
@@ -191,10 +191,10 @@ export default function BuyCoins() {
                         <img className="absolute w-full h-full top-0 left-0 sm:rounded-xl" src="stadiumBg2.webp" alt="Background" />
                     </div>
 
-                    <div className="lg:w-2/3 md:w-5/6 h-96 w-screen flex flex-col sm:gap-2 gap-0 items-center justify-center lg:mt-6 text-white sm:text-lg font-semibold bg-zinc-900 sm:rounded-xl p-2 relative">
+                    <div className="lg:w-2/3 md:w-5/6 h-96 w-screen flex flex-col gap-0 items-center justify-center lg:mt-6 text-white sm:text-lg font-semibold bg-zinc-900 sm:rounded-xl p-2 relative">
                         
                         <div className="w-full flex flex-col md:flex-row md:px-5 items-center justify-center md:justify-between gap-0 mb-3">
-                            <h1 className="text-p1 mt-1 mb-2 font-bold text-xl w-full text-center md:text-right md:text-3xl">
+                            <h1 className="text-p1 mt-1 mb-2 font-bold text-xl w-full text-center md:text-right md:text-4xl">
                                 Haz tu Pedido
                             </h1>  
                             <div className="w-full flex flex-row items-center justify-center gap-0">
@@ -234,16 +234,16 @@ export default function BuyCoins() {
                         <hr className="w-full bg-zinc-500 hidden lg:block"></hr>
                         <div className="w-full px-4">
                             <div className="flex items-center flex-col justify-center sm:mt-2 w-full"> 
-                                <span className="text-white text-4xl font-bold">
+                                <span className="text-white text-6xl font-bold">
                                     {formatPrice(price)}
                                 </span>
                                 <span className="text-white text-xl font-bold">
                                     {calculatePriceForCountry().toLocaleString()}
                                 </span>
                                 <span className="text-xl font-bold text-green-400">
-                                    {calculateBonusCoins() > 0 ?
-                                    <h1>¡{calculateBonusCoins()} monedas de REGALO!</h1>
-                                    : <h1 className="text-white">Llevate 
+                                    {price >= 300000 ?
+                                    <h1>¡{calculateBonusCoins()} de REGALO!</h1>
+                                    : <h1 className="text-white w-full text-center">Llevate 
                                         <span className="text-p1 font-bold"> +300K </span> 
                                         para obtener un 
                                         <span className="text-p1 font-bold"> BONUS </span>

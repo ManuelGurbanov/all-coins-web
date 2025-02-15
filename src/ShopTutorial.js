@@ -4,45 +4,62 @@ export default function ShopTutorial() {
     const [activeStep, setActiveStep] = React.useState(1);
 
     const steps = [
-        { id: 1, title: "Elegí tu Plataforma y Monto de Compra.", description: "Seleccioná la cantidad de monedas que deseas comprar y la plataforma en la que juegas." },
-        { id: 2, title: "Presioná comprar.", description: "Hacé click en el botón de compra y seguí las instrucciones." },
-        { id: 3, title: "Seguí nuestras indicaciones.", description: "Una vez que hayas hecho click en comprar, seguí las instrucciones que te aparecerán en pantalla." },
-        { id: 4, title: "¡Listo!", description: "¡Ya podés disfrutar de tus monedas!" }
+        { id: 1, title: "Elije tu País.", link: "step1.webp" },
+        { id: 2, title: "Selecciona Cantidad.", link: "step2.webp" },
+        { id: 3, title: "Sigue nuestras indicaciones.", link: "step3.webp" },
+        { id: 4, title: "¡Listo!", link: "step4.webp" }
     ];
 
     return (
-        <div className="lg:w-2/3 md:w-5/6 h-96 w-screen flex flex-row gap-2 items-center justify-center md:mt-6 text-white sm:text-lg font-semibold bg-zinc-900 ring-2 ring-white sm:rounded-xl p-2 relative">
+        <div className="h-screen w-screen flex flex-col md:flex-row gap-2 items-center justify-center md:mt-6 text-white sm:text-lg font-semibold bg-p1 ring-2 ring-white sm:rounded-xl p-2 relative">
             
+        {/* Sección para móviles */}
+        <div className="md:hidden flex flex-col items-center w-full p-4">
+            <h1 className="mt-4 mb-2 font-black text-black text-4xl text-center text-nowrap">¿Cómo Comprar?</h1>
+            <div className="flex justify-start gap-4 mb-4">
+                {steps.map((step) => (
+                    <button 
+                        key={step.id} 
+                        onClick={() => setActiveStep(step.id)}
+                        className={`w-10 h-10 flex items-center justify-center rounded-full text-white font-bold transition-all duration-300
+                            ${activeStep === step.id ? "bg-zinc-800 ring-2 ring-p1 scale-105" : "bg-zinc-950 ring-1 ring-p1"}
+                        `}
+                    >
+                        {step.id}
+                    </button>
+                ))}
+            </div>
+            <img className="w-full h-[70vh] object-contain" src={steps[activeStep - 1].link} alt="Phone tutorial" />
+            <h1 className="mt-4 font-black text-black text-4xl text-center text-nowrap">{steps[activeStep - 1].title}</h1>
+        </div>
+
+        {/* Sección para pantallas grandes */}
+        <div className="hidden md:flex h-screen w-screen flex-row gap-2 items-center justify-center">
             {/* Sección Izquierda */}
             <section className="w-1/2 h-auto flex flex-col items-center justify-start gap-4 mb-3">
-                <h1 className="font-bold text-white text-base w-full text-center mt-2">¿CÓMO COMPRAR?</h1>
+                <h1 className="font-black text-black text-4xl w-full text-center mt-2">¿CÓMO COMPRAR?</h1>
                 {steps.map((step) => (
                     <div 
                         key={step.id} 
                         onClick={() => setActiveStep(step.id)} 
-                        className={`w-5/6 h-16 px-2 py-1 flex flex-col items-start justify-start rounded-2xl cursor-pointer transition-all duration-300
+                        className={`w-full h-24 px-2 py-1 flex flex-col items-start justify-start rounded-2xl cursor-pointer transition-all duration-300
                             ${activeStep === step.id ? "bg-zinc-800 ring-2 ring-p1 scale-105" : "bg-zinc-950 ring-1 ring-p1"}
                         `}
                     >
-                        <h1 className="font-black text-p1 text-base">PASO {step.id}</h1>
-                        <h1 className="font-medium text-white text-xs lg:text-md">{step.title}</h1>
+                        <h1 className="font-black text-p1 text-lg">PASO {step.id}</h1>
+                        <h1 className="font-medium text-white text-xs lg:text-xl">{step.title}</h1>
                     </div>
                 ))}
             </section>
 
-
             {/* Línea divisoria */}
-            <hr className="h-96 w-[1px] bg-white mr-4 ml-4" />
+            <hr className="h-96 w-[1px] bg-white mr-8 ml-8" />
 
-            {/* Sección Derecha (fija) */}
+            {/* Sección Derecha (imagen cambia dinámicamente) */}
             <section className="sm:w-[300px] w-[120px] flex-shrink-0 flex flex-col items-center justify-between gap-0 mb-3">
-                <img className="sm:h-[150px] h-[130px] sm:w-[150px] object-contain" src="phone.webp" alt="Phone tutorial" />
-                <div className="w-full sm:h-[150px]  h-[100px] flex flex-col items-center justify-start gap-3 text-center mt-4">
-                    <h1 className="font-bold text-p1 text-2xl">PASO {steps[activeStep - 1].id}</h1>
-                    <h1 className="font-medium text-white sm:text-lg text-xs">{steps[activeStep - 1].description}</h1>
-                </div>
+                <img className="h-full object-contain" src={steps[activeStep - 1].link} alt="Phone tutorial" />
             </section>
-
         </div>
+    </div>
     );
 }

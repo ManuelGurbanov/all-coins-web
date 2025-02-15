@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'D-DIN Condensed';
+    src: 
+      url('./fonts/D-DIN-Condensed.ttf.eot'),
+      url('./fonts/D-DIN-Condensed.ttf.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
