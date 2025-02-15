@@ -3,12 +3,19 @@ import ShopTutorial from "./ShopTutorial";
 import { db } from "./firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect } from "react";
+import { useCountry } from "./LanguageContext";
+
+import { doc, getDoc } from "firebase/firestore";
 
 export default function BuyCoins() {
     const [price, setPrice] = useState(250000);
     const [offer, setOffer] = useState(null);
     const pricePer100 = 3000;
     const phoneNumber = "34671704084";
+
+    const [prices, setPrices] = useState([]);
+    const [bonusCoins, setBonusCoins] = useState(0);
+    const selectedCountry = useCountry();
 
     const increasePrice = () => {
         if (price < 2000000) {
@@ -31,11 +38,20 @@ export default function BuyCoins() {
         }
         return price;
     };
+    
 
-    const calculatePriceInARS = () => {
-        const coinsInHundreds = price / 100000;
-        return coinsInHundreds * pricePer100;
+    const calculateBonusCoins = () => {
+        if (price >= 1000000) return 200000;
+        if (price >= 500000) return 50000;
+        if (price >= 300000) return 20000;
+        return 0;
     };
+
+
+
+    useEffect(() => {
+        setBonusCoins(calculateBonusCoins());
+    }, [price]);
 
     const openWhatsApp = () => {
         const message = `Hola ¿qué tal? Quería saber si se encuentran disponibles ${formatPrice(price)} para ${platformSelected === "PSXB" ? "el mercado PS/XB" : "PC"}. Gracias!`;
@@ -85,14 +101,70 @@ export default function BuyCoins() {
         let newPrice = minPrice + (maxPrice - minPrice) * newProgress;
     
         if (newPrice < 1000000) {
-            newPrice = Math.round(newPrice / 50000) * 50000; // Redondeo al múltiplo de 50 más cercano
+            newPrice = Math.round(newPrice / 50000) * 50000;
         } else {
-            newPrice = Math.round(newPrice / 100000) * 100000; // Redondeo a la centena de mil más cercana
+            newPrice = Math.round(newPrice / 100000) * 100000;
         }
     
         setPrice(newPrice);
     };
+
+
+    const [exchangeRates, setExchangeRates] = useState({
+        CLP: 0,
+        EUR: 0,
+        USD: 0,
+    });
+
+    useEffect(() => {
+        const fetchPrices = async () => {
+            console.log("Fetching prices...");
+            try {
+                const querySnapshot = await getDocs(collection(db, "prices"));
+                const pricesData = querySnapshot.docs.map(doc => doc.data());
+                setPrices(pricesData);
+                
+                setExchangeRates({
+                    CLP: pricesData[0]["CLP"] || 0,
+                    EUR: pricesData[0]["EUR"] || 0,
+                    USD: pricesData[0]["USD"] || 0,
+                });
+            } catch (error) {
+                console.error("Error fetching prices:", error);
+            }
+        };
+        fetchPrices();
+    }, []);
+
+    useEffect(() => {
+        console.log("Prices fetched:", exchangeRates);
+    }, [exchangeRates]);
     
+    const calculatePriceForCountry = () => {
+        const rate = exchangeRates[selectedCountry.country];
+        
+        if (!rate) {
+            return 0;
+        }
+        
+        const calculatedPrice = (price / 100000) * rate;
+        
+        let formattedPrice = calculatedPrice;
+    
+        if (selectedCountry.country === "CLP") {
+            formattedPrice = "$" + Math.floor(calculatedPrice);
+        } else if (selectedCountry.country === "EUR") {
+            formattedPrice = "€" + calculatedPrice.toFixed(2);
+        } else {
+            formattedPrice = calculatedPrice.toFixed(2);
+        }
+        
+        return formattedPrice + " " + selectedCountry.country.toUpperCase();
+    };
+    
+    
+    
+
     
 
     return (
@@ -122,7 +194,9 @@ export default function BuyCoins() {
                     <div className="lg:w-2/3 md:w-5/6 h-96 w-screen flex flex-col sm:gap-2 gap-0 items-center justify-center lg:mt-6 text-white sm:text-lg font-semibold bg-zinc-900 sm:rounded-xl p-2 relative">
                         
                         <div className="w-full flex flex-col md:flex-row md:px-5 items-center justify-center md:justify-between gap-0 mb-3">
-                            <h1 className="text-p1 mt-1 mb-2 font-bold text-3xl w-full text-center md:text-right md:text-4xl">Hacé tu pedido</h1>  
+                            <h1 className="text-p1 mt-1 mb-2 font-bold text-xl w-full text-center md:text-right md:text-3xl">
+                                Haz tu Pedido
+                            </h1>  
                             <div className="w-full flex flex-row items-center justify-center gap-0">
 
                             <div 
@@ -163,8 +237,18 @@ export default function BuyCoins() {
                                 <span className="text-white text-4xl font-bold">
                                     {formatPrice(price)}
                                 </span>
-                                <span className="text-white text-lg ">
-                                    {calculatePriceInARS().toLocaleString()} ARS
+                                <span className="text-white text-xl font-bold">
+                                    {calculatePriceForCountry().toLocaleString()}
+                                </span>
+                                <span className="text-xl font-bold text-green-400">
+                                    {calculateBonusCoins() > 0 ?
+                                    <h1>¡{calculateBonusCoins()} monedas de REGALO!</h1>
+                                    : <h1 className="text-white">Llevate 
+                                        <span className="text-p1 font-bold"> +300K </span> 
+                                        para obtener un 
+                                        <span className="text-p1 font-bold"> BONUS </span>
+                                    </h1>}
+                                    
                                 </span>
                             </div>
 
@@ -176,6 +260,7 @@ export default function BuyCoins() {
                                     className="flex-1 h-4 bg-gray-600 rounded-full relative cursor-pointer" 
                                     ref={barRef} 
                                     onMouseDown={handleBarClick}
+                                    
                                 >
                                     <div
                                         className="h-full bg-p1 rounded-full transition-all duration-300 ease-in-out"
@@ -207,7 +292,7 @@ export default function BuyCoins() {
                                     onClick={openWhatsApp}
                                     className="px-6 py-3 bg-p1 text-white ring-1 ring-white rounded-full hover:scale-105 duration-75 ease-in-out"
                                 >
-                                    Comprar <strong>${calculatePriceInARS().toLocaleString()} ARS</strong>
+                                    Comprar <strong>{calculatePriceForCountry().toLocaleString()}</strong>
                                 </button>
                             </div>
                         </div>

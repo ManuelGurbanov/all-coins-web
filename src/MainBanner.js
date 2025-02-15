@@ -6,7 +6,7 @@ export default function MainBanner() {
 
             <img className="max-[450px]:hidden w-screen object-cover" src="desktopBanner.webp" alt="bg" data-aos="fade-up"/>
 
-            <img className="hidden max-[450px]:block h-screen w-full object-cover" src="phoneBanner.webp" alt="bg" data-aos="fade-up" />
+            <img className="hidden max-[450px]:block w-screen object-cover" src="phoneBanner.webp" alt="bg" data-aos="fade-up" />
         </div>
     );
 }
