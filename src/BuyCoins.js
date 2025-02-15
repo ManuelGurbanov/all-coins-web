@@ -47,7 +47,7 @@ export default function BuyCoins() {
     const calculateBonusCoins = () => {
         if (price >= 1000000) return "50K";
         else if (price >= 500000) return "25K";
-        return 0;
+        return null;
     };
 
 
@@ -244,7 +244,7 @@ export default function BuyCoins() {
                                     {calculatePriceForCountry().toLocaleString()}
                                 </span>
                                 <span className="text-xl font-bold text-green-400">
-                                    {price >= 300000 ?
+                                    {calculateBonusCoins() != null ?
                                     <h1>¡{calculateBonusCoins()} {translate("REGALO", language)}</h1>
                                     : <h1 className="text-white w-full text-center">{translate("LLEVATE2", language)} 
                                         <span className="text-p1 font-bold"> +500K </span> 
