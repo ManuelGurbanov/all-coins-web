@@ -7,6 +7,10 @@ import { useCountry } from "./LanguageContext";
 
 import { doc, getDoc } from "firebase/firestore";
 
+import { translate } from "./Translations";
+
+import { useLanguage } from "./LanguageContext";
+
 export default function BuyCoins() {
     const [price, setPrice] = useState(250000);
     const [offer, setOffer] = useState(null);
@@ -41,9 +45,8 @@ export default function BuyCoins() {
     
 
     const calculateBonusCoins = () => {
-        if (price >= 1000000) return "200K";
-        if (price >= 500000) return "50K";
-        if (price >= 300000) return "20K";
+        if (price >= 1000000) return "50K";
+        else if (price >= 500000) return "25K";
         return 0;
     };
 
@@ -165,7 +168,7 @@ export default function BuyCoins() {
     
     
 
-    
+    const language = useLanguage().language;
 
     return (
         <section className=" flex flex-col items-center justify-center w-full">
@@ -174,18 +177,18 @@ export default function BuyCoins() {
 
                     
                     <div className="lg:w-1/3 md:w-5/6 h-96 w-screen flex flex-col items-center justify-start lg:mt-6 text-p1 sm:text-lg font-semibold bg-zinc-900 sm:rounded-xl px-2 py-1 relative">
-                        <h1 className="z-20 w-full text-center text-3xl font-bold mt-8">¡Oferta Disponible!</h1>
+                        <h1 className="z-20 w-full text-center text-3xl font-bold mt-8">{translate("OFERTA", language)}</h1>
 
                         {offer && (
                             <>
                                 <img className="w-32 z-20" src={offer.player} alt="Oferta" />
-                                <h3 className="z-20 font-bold text-lg">COMPRÁ <span className="text-white font-extrabold">{offer.buy}K</span></h3>
-                                <h3 className="z-20 font-bold text-lg">LLEVATE <span className="text-white font-extrabold">{offer.take}K</span></h3>
+                                <h3 className="z-20 font-bold text-lg">{translate("COMPRA", language)} <span className="text-white font-extrabold">{offer.buy}K</span></h3>
+                                <h3 className="z-20 font-bold text-lg">{translate("LLEVATE", language)} <span className="text-white font-extrabold">{offer.take}K</span></h3>
                             </>
                         )}
 
-                        <button className="z-20 bg-p1 rounded-full text-white font-semibold ring-1 ring-white px-3 py-1 hover:scale-105 duration-75 ease-in-out text-sm mt-2" onClick={openWhatsAppOffer}>
-                            Estoy Interesado
+                        <button className="z-20 bg-p1 rounded-full text-white font-semibold ring-1 ring-white px-3 py-1 hover:scale-105 duration-75 ease-in-out text-xl mt-2" onClick={openWhatsAppOffer}>
+                            {translate("INTERESTED", language)}
                         </button>
 
                         <img className="absolute w-full h-full top-0 left-0 sm:rounded-xl" src="stadiumBg2.webp" alt="Background" />
@@ -195,7 +198,7 @@ export default function BuyCoins() {
                         
                         <div className="w-full flex flex-col md:flex-row md:px-5 items-center justify-center md:justify-between gap-0 mb-3">
                             <h1 className="text-p1 mt-1 mb-2 font-bold text-xl w-full text-center md:text-right md:text-4xl">
-                                Haz tu Pedido
+                                {translate("PEDIDO", language)}
                             </h1>  
                             <div className="w-full flex flex-row items-center justify-center gap-0">
 
@@ -242,10 +245,10 @@ export default function BuyCoins() {
                                 </span>
                                 <span className="text-xl font-bold text-green-400">
                                     {price >= 300000 ?
-                                    <h1>¡{calculateBonusCoins()} de REGALO!</h1>
-                                    : <h1 className="text-white w-full text-center">Llevate 
-                                        <span className="text-p1 font-bold"> +300K </span> 
-                                        para obtener un 
+                                    <h1>¡{calculateBonusCoins()} {translate("REGALO", language)}</h1>
+                                    : <h1 className="text-white w-full text-center">{translate("LLEVATE2", language)} 
+                                        <span className="text-p1 font-bold"> +500K </span> 
+                                        {translate("BONUS", language)}  
                                         <span className="text-p1 font-bold"> BONUS </span>
                                     </h1>}
                                     

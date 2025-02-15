@@ -1,13 +1,15 @@
 import React from "react";
-
+import { useLanguage } from "./LanguageContext";
+import { translate } from "./Translations";
 export default function ShopTutorial() {
     const [activeStep, setActiveStep] = React.useState(1);
+    const language = useLanguage().language;
 
     const steps = [
-        { id: 1, title: "Elije tu País.", link: "step1.webp" },
-        { id: 2, title: "Selecciona Cantidad.", link: "step2.webp" },
-        { id: 3, title: "Sigue nuestras indicaciones.", link: "step3.webp" },
-        { id: 4, title: "¡Listo!", link: "step4.webp" }
+        { id: 1, title: translate("PASO1", language), link: "step1.webp" },
+        { id: 2, title: translate("PASO2", language), link: "step2.webp" },
+        { id: 3, title: translate("PASO3", language), link: "step3.webp" },
+        { id: 4, title: translate("PASO4", language), link: "step4.webp" }
     ];
 
     return (
@@ -15,7 +17,7 @@ export default function ShopTutorial() {
             
         {/* Sección para móviles */}
         <div className="md:hidden flex flex-col items-center w-full p-4">
-            <h1 className="mt-4 mb-2 font-black text-black text-4xl text-center text-nowrap">¿Cómo Comprar?</h1>
+            <h1 className="mt-4 mb-2 font-black text-black text-4xl text-center text-nowrap">{translate("COMO", language)}</h1>
             <div className="flex justify-start gap-4 mb-4">
                 {steps.map((step) => (
                     <button 
@@ -37,7 +39,7 @@ export default function ShopTutorial() {
         <div className="hidden md:flex h-screen w-screen flex-row gap-2 items-center justify-center">
             {/* Sección Izquierda */}
             <section className="w-1/2 h-auto flex flex-col items-center justify-start gap-4 mb-3">
-                <h1 className="font-black text-black text-4xl w-full text-center mt-2">¿CÓMO COMPRAR?</h1>
+                <h1 className="font-black text-black text-4xl w-full text-center mt-2">{translate("COMO", language)}</h1>
                 {steps.map((step) => (
                     <div 
                         key={step.id} 
