@@ -1,56 +1,102 @@
 const translations = {
-    en: {
-        "Inicio": "Home",
-        "Sobre Nosotros": "About Us",
-        "Vender Monedas": "Sell Coins",
-        "OFERTA" : "Offer Available!",
-        "COMPRA" : "BUY",
-        "LLEVATE" : "TAKE",
-        "PEDIDO" : "Place your Order",
-        "LLEVATE2" : "Take",
-        "BONUS" : "to get a",
-        "INTERESTED" : "I'm Interested",
-        "REGALO" : "as a gift!",
-        "COMO" : "HOW TO BUY?",
-        "PASO1" : "Choose your Country.",
-        "PASO2" : "Select Quantity.",
-        "PASO3" : "Follow our instructions.",
-        "PASO4" : "Done!",
-        "PAGO" : "Payment Methods",
-        "BOOSTING" : "Ask about our Boosting Service!",
-        "RANGO": "We achieve that range that is difficult for you to reach"
-    },
-    es: {
-        "Inicio": "Inicio",
-        "Sobre Nosotros": "Sobre Nosotros",
-        "Vender Monedas": "Vender Monedas",
-        "OFERTA" : "¡Oferta Disponible!",
-        "COMPRA" : "COMPRA",
-        "LLEVATE" : "LLEVA",
-        "PEDIDO" : "Haz tu Pedido",
-        "LLEVATE2" : "Llevate",
-        "BONUS" : "para obtener un",
-        "INTERESTED" : "Estoy Interesado",
-        "REGALO" : "de regalo!",
-        "COMO" : "¿CÓMO COMPRAR?",
-        "PASO1" : "Elije tu País.",
-        "PASO2" : "Selecciona Cantidad.",
-        "PASO3" : "Sigue nuestras indicaciones.",
-        "PASO4" : "¡Listo!",
-        "PAGO" : "Métodos de Pago",
-        "BOOSTING" : "¡Pregunta por nuestro Servicio de Boosting!",
-        "RANGO": "Conseguimos ese rango al que te cuesta llegar"
-    }
-    
-  };
-    
-    export const translate = (key, language) => {
-      if (translations[language] && translations[language][key]) {
-        return translations[language][key];
-      }
-      console.warn(`Translation missing for key "${key}" in language "${language}"`);
-      return key;
-    };
-    
-    export default translations;
-    
+  en: {
+      "Inicio": "Home",
+      "Sobre Nosotros": "About Us",
+      "Vender Monedas": "Sell Coins",
+      "OFERTA": "Offer Available!",
+      "COMPRA": "BUY",
+      "LLEVATE": "TAKE",
+      "PEDIDO": "Place your Order",
+      "LLEVATE2": "Take",
+      "BONUS": "to get a",
+      "INTERESTED": "I'm Interested",
+      "REGALO": "as a gift!",
+      "COMO": "HOW TO BUY?",
+      "PASO1": "Choose your Country.",
+      "PASO2": "Select Quantity.",
+      "PASO3": "Follow our instructions.",
+      "PASO4": "Done!",
+      "PAGO": "Payment Methods",
+      "BOOSTING": "Ask about our Boosting Service!",
+      "RANGO": "We achieve that range that is difficult for you to reach",
+      "faq1": "How long does the delivery take?",
+      "faq2": "What payment methods do you accept?",
+      "faq3": "Is it safe to buy here?",
+      "faq4": "Can I get a refund?",
+      "faq5": "How does the boosting service work?",
+      "faq6": "How does the transfer method work?",
+      "faq7": "Is there a risk of my account getting banned?",
+      "faq8": "What payment methods do you offer?",
+      "faq9": "Is this safe?",
+      "faq10": "Do you also sell players?",
+      "faq11": "Why are Coins better than FIFA Points?",
+      "faq12": "How long does it take to receive my coins?",
+      "faq13": "Do you cover the EA Tax and the coins I spend on the transfer?",
+      "faq14": "Do I need to have coins to start the transfer?",
+      "faq15": "Do I have to provide my account details or any personal information?",
+      "faq16": "I'm not on my console, can I do it from the companion app?",
+      "faq17": "What is the FUT Boosting service about? Is it safe?",
+      "faqTitle" : "Frequently Asked Questions",
+      "showMore": "Show More",
+      "showLess" : "Show Less",
+      "buy" : "BUY",
+      "sellCoinsTittle" : "Sell Coins",
+      "sellCoins" : "To start selling your coins, please contact us through WhatsApp.",
+      "aboutUs" : "About Us"
+  },
+  es: {
+      "Inicio": "Inicio",
+      "Sobre Nosotros": "Sobre Nosotros",
+      "Vender Monedas": "Vender Monedas",
+      "OFERTA": "¡Oferta Disponible!",
+      "COMPRA": "COMPRA",
+      "LLEVATE": "LLEVA",
+      "PEDIDO": "Haz tu Pedido",
+      "LLEVATE2": "Llevate",
+      "BONUS": "para obtener un",
+      "INTERESTED": "Estoy Interesado",
+      "REGALO": "de regalo!",
+      "COMO": "¿CÓMO COMPRAR?",
+      "PASO1": "Elije tu País.",
+      "PASO2": "Selecciona Cantidad.",
+      "PASO3": "Sigue nuestras indicaciones.",
+      "PASO4": "¡Listo!",
+      "PAGO": "Métodos de Pago",
+      "BOOSTING": "¡Pregunta por nuestro Servicio de Boosting!",
+      "RANGO": "Conseguimos ese rango al que te cuesta llegar",
+      "faq1": "¿Cuánto tiempo tarda la entrega?",
+      "faq2": "¿Qué métodos de pago aceptan?",
+      "faq3": "¿Es seguro comprar aquí?",
+      "faq4": "¿Puedo obtener un reembolso?",
+      "faq5": "¿Cómo funciona el servicio de boosting?",
+      "faq6": "¿Cómo es el método de traspaso?",
+      "faq7": "¿Hay riesgo de ban sobre mi cuenta?",
+      "faq8": "¿Qué métodos de pago ofrecéis?",
+      "faq9": "¿Esto es algo seguro?",
+      "faq10": "¿Vendéis también jugadores?",
+      "faq11": "¿Por qué las Monedas son mejores que los FIFA Points?",
+      "faq12": "¿En cuánto tiempo recibo mis monedas?",
+      "faq13": "¿Cubren el EA Tax y las monedas que gaste en el traspaso?",
+      "faq14": "¿Debo tener monedas para comenzar con el traspaso?",
+      "faq15": "¿Tengo que brindarles los datos de mi cuenta o algún dato personal?",
+      "faq16": "No estoy con la consola, ¿puedo hacerlo desde la app companion?",
+      "faq17": "¿De qué se trata el servicio de FUT Boosting? ¿Es seguro?",
+      "faqTitle" : "Preguntas Frecuentes",
+      "showMore": "Mostrar Más",
+      "showLess" : "Mostrar Menos",
+      "buy" : "Comprar",
+      "sellCoinsTittle" : "Vender Monedas",
+      "sellCoins" : "Para comenzar a vender tus monedas, por favor contactanos a través de WhatsApp.",
+      "aboutUs" : "Sobre Nosotros"
+  }
+};
+
+export const translate = (key, language) => {
+  if (translations[language] && translations[language][key]) {
+      return translations[language][key];
+  }
+  console.warn(`Translation missing for key "${key}" in language "${language}"`);
+  return key;
+};
+
+export default translations;

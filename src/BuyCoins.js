@@ -15,7 +15,7 @@ export default function BuyCoins() {
     const [price, setPrice] = useState(250000);
     const [offer, setOffer] = useState(null);
     const pricePer100 = 3000;
-    const phoneNumber = "34671704084";
+    const phoneNumber = "34644847922";
 
     const [prices, setPrices] = useState([]);
     const [bonusCoins, setBonusCoins] = useState(0);
@@ -295,7 +295,7 @@ export default function BuyCoins() {
                                     onClick={openWhatsApp}
                                     className="px-6 py-3 bg-p1 text-white ring-1 ring-white rounded-full hover:scale-105 duration-75 ease-in-out"
                                 >
-                                    Comprar <strong>{calculatePriceForCountry().toLocaleString()}</strong>
+                                    {translate("buy", language)} <strong>{calculatePriceForCountry().toLocaleString()}</strong>
                                 </button>
                             </div>
                         </div>

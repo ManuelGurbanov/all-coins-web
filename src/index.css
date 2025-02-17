@@ -39,3 +39,7 @@ code {
   height: 100%;
 }
 
+.p1-gradient {
+  background: rgb(190,84,227);
+  background: linear-gradient(336deg, rgba(190,84,227,1) 0%, rgba(144,84,227,1) 55%);
+}

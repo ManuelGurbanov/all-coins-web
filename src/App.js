@@ -13,13 +13,16 @@ import Boosting from "./Boosting";
 
 import { LanguageProvider } from "./LanguageContext"; 
 
-import { db } from "./firebaseConfig";
-import { doc, setDoc } from "firebase/firestore";
+import Faq from "./Faq";
+
+import SellCoins from "./SellCoins";
+import AboutUs from "./AboutUs";
 
 const openWhatsApp = () => {
-  const url = `https://wa.me/34671704084`;
+  const url = `https://wa.me/34644847922`;
   window.open(url, "_blank");
 };
+
 
 function Layout({ children }) {
   return (
@@ -47,26 +50,12 @@ function Home() {
       <Payment />
       <DataBlock />
       <Boosting/>
+      <Faq/>
       </div>
     </>
   );
 }
 
-function AboutUs() {
-  return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-start mt-20 text-white">
-      <h1 className="text-4xl font-bold" data-aos="fade-up">Sobre Nosotros</h1>
-    </div>
-  );
-}
-
-function SellCoins() {
-  return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-start mt-20 text-white">
-      <h1 className="text-4xl font-bold">Vendé tus Monedas</h1>
-    </div>
-  );
-}
 
 function App() {
 
@@ -81,7 +70,7 @@ function App() {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Layout><Home /></Layout>} />
           <Route path="/sobre-nosotros" element={<Layout><AboutUs /></Layout>} />
-          <Route path="/vender-monedas" element={<Layout><SellCoins /></Layout>} />
+          <Route path="/vender-monedas" element={<Layout><SellCoins openWhatsApp={openWhatsApp}/></Layout>} />
           <Route path="/admin-panel" element={<Layout><AdminPanel /></Layout>} />
         </Routes>
       </Router>
