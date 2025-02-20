@@ -16,7 +16,7 @@ export default function ShopTutorial() {
         <div className="h-screen w-screen flex flex-col md:flex-row gap-2 items-center justify-center md:mt-6 text-white sm:text-lg font-semibold bg-p1 ring-2 ring-white sm:rounded-xl p-2 relative">
             
         {/* Sección para móviles */}
-        <div className="md:hidden flex flex-col items-center w-full p-4">
+        <div className="md:hidden flex flex-col items-center w-full p-4 h-dvh">
             <h1 className="mt-4 mb-2 font-black text-black text-4xl text-center text-nowrap">{translate("COMO", language)}</h1>
             <div className="flex justify-start gap-4 mb-4">
                 {steps.map((step) => (
@@ -31,8 +31,8 @@ export default function ShopTutorial() {
                     </button>
                 ))}
             </div>
-            <img className="w-full h-[70vh] object-contain" src={steps[activeStep - 1].link} alt="Phone tutorial" />
-            <h1 className="mt-4 font-black text-black text-4xl text-center text-nowrap">{steps[activeStep - 1].title}</h1>
+            <img className="w-full h-[50vh] object-contain" src={steps[activeStep - 1].link} alt="Phone tutorial" />
+            <h1 className="mt-4 font-black text-black text-xl text-center">{steps[activeStep - 1].title}</h1>
         </div>
 
         {/* Sección para pantallas grandes */}
@@ -49,7 +49,7 @@ export default function ShopTutorial() {
                         `}
                     >
                         <h1 className="font-black text-p1 text-lg">PASO {step.id}</h1>
-                        <h1 className="font-medium text-white text-xs lg:text-xl">{step.title}</h1>
+                        <h1 className="font-medium text-white text-xs lg:text-base">{step.title}</h1>
                     </div>
                 ))}
             </section>

@@ -54,27 +54,7 @@ const Faq = () => {
     {
       key: '12',
       isOpen: false,
-    },
-    {
-      key: '13',
-      isOpen: false,
-    },
-    {
-        key: '14',
-        isOpen: false,
-      },
-      {
-        key: '15',
-        isOpen: false,
-      },
-      {
-        key: '16',
-        isOpen: false,
-      },
-      {
-        key: '17',
-        isOpen: false,
-      },
+    }
   ]);
 
   const [visibleCount, setVisibleCount] = useState(5);
@@ -91,11 +71,11 @@ const Faq = () => {
   };
 
   const showMore = () => {
-    setVisibleCount(prevCount => Math.min(prevCount + 5, faqs.length));
+    setVisibleCount(prevCount => Math.min(prevCount + 6, faqs.length));
   };
 
   const showLess = () => {
-    setVisibleCount(prevCount => Math.max(prevCount - 5, 5));
+    setVisibleCount(prevCount => Math.max(prevCount - 6, 6));
   };
 
   return (
@@ -108,9 +88,8 @@ const Faq = () => {
               key={index}
               className='p-4 my-2 rounded-lg cursor-pointer flex flex-col items-start p1-gradient'
               onClick={() => toggleFaq(index)}
-              data-aos="fade-right"
             >
-              <div className="font-bold text-center w-full">
+              <div className="font-extrabold text-center w-full">
                 {translate('faq' + faq.key, language)}
               </div>
               {faq.isOpen && <div className="mt-2 text-center w-full">{translate(`answer${faq.key}`, language)}</div>}
@@ -119,7 +98,7 @@ const Faq = () => {
         </div>
       </section>
       <div className="flex justify-start gap-4 mt-1">
-        {visibleCount > 5 && (
+        {visibleCount > 6 && (
           <button
             onClick={showLess}
             className="px-4 py-2 text-white underline rounded hover:scale-105 transition ease-in cursor-pointer duration-75"
