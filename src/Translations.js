@@ -68,7 +68,7 @@ const translations = {
     "reason1": "+9.000 sales made",
     "reason2": "+8 years of experience",
     "reason3": "+3.400 satisfied customers",
-    "reason4": "+850M coins delivered each year"
+    "reason4": "+1000 Millon coins delivered"
 },
   es: {
       "Inicio": "Inicio",
@@ -136,7 +136,7 @@ const translations = {
       "reason1": "+9.000 ventas realizadas",
       "reason2": "+8 años de experiencia",
       "reason3": "+3.400 clientes satisfechos",
-      "reason4": "+850M de monedas entregadas cada año"
+      "reason4": "+1000 millones de monedas entregadas"
   }
 };
 
