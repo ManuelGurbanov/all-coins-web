@@ -2,11 +2,12 @@ import { translate } from './Translations';
 import { useLanguage } from './LanguageContext';
 import React, { useState, useEffect } from 'react';
 
+import { db, doc, getDoc } from './firebaseConfig';
+import GiftLogo from './GiftLogo';
 export default function BuyBox({
   formatPrice, 
   price, 
   calculatePriceForCountry, 
-  calculateBonusCoins, 
   increasePrice, 
   decreasePrice, 
   setPrice, 
@@ -67,6 +68,24 @@ export default function BuyBox({
     setIsDragging(false);
   };
 
+  const [bonusPercentage, setBonusPercentage] = useState(0);
+  const [minCoinsForBonus, setMinCoinsForBonus] = useState(0);
+
+  useEffect(() => {
+    const fetchBonusConfig = async () => {
+      const docRef = doc(db, "discounts", "global");
+      const docSnap = await getDoc(docRef);
+      
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setBonusPercentage(data.discountPercentage || 0);
+        setMinCoinsForBonus(data.minCoinsForDiscount || 0);
+      }
+    };
+
+    fetchBonusConfig();
+  }, []);
+
   useEffect(() => {
     if (isDragging) {
       document.addEventListener('mousemove', handleMouseMove);
@@ -87,7 +106,15 @@ export default function BuyBox({
     };
   }, [isDragging]);
 
-  // Rango de precios
+  const calculateBonusCoins = () => {
+    if (bonusPercentage === 0) return null;
+    if (price >= minCoinsForBonus) {
+      return (Math.floor((price * bonusPercentage) / 100) / 1000) + "K";
+    }
+    return translate("LLEVATE2", language) + " " + minCoinsForBonus / 1000 + "K " + translate("LLEVATE3", language);
+  };
+  
+
   const minPrice = 0;
   const maxPrice = 2000000;
   const calculatedProgress = ((price - minPrice) / (maxPrice - minPrice)) * 100;
@@ -102,20 +129,14 @@ export default function BuyBox({
         <span className="text-white text-6xl font-bold sm:mb-0 gap-4 flex items-center justify-center">
           {formatPrice(price)} <img src='coin.webp' className='w-12'></img>
         </span>
-        <span className="text-xl font-bold text-yellow-400 sm:mb-2 mb-4">
+        <span className="text-xl font-bold text-yellow-400">
           {calculateBonusCoins() != null ? (
-            <h1>
-              ¡{calculateBonusCoins()} {translate("REGALO", language)}
-            </h1>
-          ) : (
-            <h1 className="text-white w-full text-center">
-              {translate("LLEVATE2", language)} 
-              <span className="text-p1 font-bold"> +500K </span> 
-              {translate("BONUS", language)}  
-              <span className="text-p1 font-bold"> BONUS </span>
-            </h1>
-          )}
+            <div className='flex items-center justify-center text-2xl'>
+              ¡{calculateBonusCoins()} <GiftLogo/> !
+            </div>
+          ) : null}
         </span>
+        <span className="text-xl font-bold text-p1">{calculatePriceForCountry().toLocaleString()}</span>
       </div>
 
       {/* Barra de Precios */}
@@ -145,7 +166,7 @@ export default function BuyBox({
           />
 
           {/* Marcador para 250K */}
-          <div 
+          {/* <div 
             className="absolute -top-10 bg-yellow-400 px-2 py-1 text-black rounded-xl cursor-default flex items-center justify-center gap-1"
             style={{
               left: `calc(${ratio250}% - 30px)`
@@ -154,7 +175,7 @@ export default function BuyBox({
             <div className="text-sm">+25</div> <img src='coin.webp' className='w-4'></img>
           </div>
 
-          {/* Marcador para 1M */}
+          {/* Marcador para 1M 
           <div 
             className="absolute -top-10 bg-yellow-400 px-2 py-1 text-black rounded-xl cursor-default flex items-center justify-center gap-1"
             style={{
@@ -162,7 +183,7 @@ export default function BuyBox({
             }}
           >
             <div className="text-sm">+50K</div> <img src='coin.webp' className='w-4'></img>
-          </div>
+          </div> */}
 
           {/* Marcadores existentes (opcional, ajustalos si ya no se necesitan) */}
           <div className="absolute -right-2 -bottom-8 sm:-bottom-11 flex flex-col items-center z-50">

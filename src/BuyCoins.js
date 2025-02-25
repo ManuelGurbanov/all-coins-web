@@ -131,6 +131,8 @@ export default function BuyCoins() {
                     CLP: pricesData[0]["CLP"] || 0,
                     EUR: pricesData[0]["EUR"] || 0,
                     USD: pricesData[0]["USD"] || 0,
+                    MXN: pricesData[0]["MXN"] || 0,
+                    COP: pricesData[0]["COP"] || 0,
                 });
             } catch (error) {
                 console.error("Error fetching prices:", error);
@@ -154,13 +156,13 @@ export default function BuyCoins() {
         
         let formattedPrice = calculatedPrice;
     
-        if (selectedCountry.country === "CLP") {
-            formattedPrice = "$" + Math.floor(calculatedPrice);
+        if (selectedCountry.country === "CLP" || selectedCountry.country === "COP" || selectedCountry.country === "MXN") {
+            formattedPrice = "$" + Math.floor(calculatedPrice).toLocaleString("es-ES");
         } else if (selectedCountry.country === "EUR") {
             formattedPrice = "€" + calculatedPrice.toFixed(2);
         } else {
             formattedPrice = calculatedPrice.toFixed(2);
-        }
+        }        
         
         return formattedPrice + " " + selectedCountry.country.toUpperCase();
     };

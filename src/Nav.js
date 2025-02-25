@@ -23,7 +23,8 @@ export default function Nav() {
         "CLP": "flags/chi.webp",
         "EUR": "flags/eur.webp",
         "USD": "flags/eeuu.webp",
-        "MXN": "flags/mxn.webp"
+        "MXN": "flags/mxn.webp",
+        "COP": "flags/cop.webp"
     }
 
     return (
@@ -45,9 +46,6 @@ export default function Nav() {
 
                         {isCountrySelectOpen &&     
                             <div className="flex flex-col gap-2 absolute bg-black ring-2 ring-black top-12 left-0rounded-lg z-50">
-                                {/* <button onClick={() => {setCountry("ARS"); setIsCountrySelectOpen(false)}} className="text-p1 relative bg-p1 flex gap-2 items-center justify-start bg-opacity-25 hover:bg-opacity-80 hover:text-white transition-all duration-75 p-3">
-                                    ARS <img className="h-4" src="flags/arg.webp"></img>
-                                </button> */}
                                 <button onClick={() => {setCountry("CLP"); setIsCountrySelectOpen(false)}} className="text-p1 relative bg-p1 flex gap-2 items-center justify-start bg-opacity-25 hover:bg-opacity-80 hover:text-white transition-all duration-75 p-3">
                                     CLP <img className="h-4" src="flags/chi.webp"></img>
                                 </button>
@@ -57,9 +55,12 @@ export default function Nav() {
                                 <button onClick={() => {setCountry("USD"); setIsCountrySelectOpen(false)}} className="text-p1 relative bg-p1 flex gap-2 items-center justify-start bg-opacity-25 hover:bg-opacity-80 hover:text-white transition-all duration-75 p-3">
                                     USD <img className="h-4" src="flags/eeuu.webp"></img>
                                 </button>
-                                {/* <button onClick={() => {setCountry("MXN"); setIsCountrySelectOpen(false)}} className="text-p1 relative bg-p1 flex gap-2 items-center justify-start bg-opacity-25 hover:bg-opacity-80 hover:text-white transition-all duration-75 p-3">
+                                <button onClick={() => {setCountry("MXN"); setIsCountrySelectOpen(false)}} className="text-p1 relative bg-p1 flex gap-2 items-center justify-start bg-opacity-25 hover:bg-opacity-80 hover:text-white transition-all duration-75 p-3">
                                     MXN <img className="h-4" src="flags/mxn.webp"></img>
-                                </button> */}
+                                </button>
+                                <button onClick={() => {setCountry("COP"); setIsCountrySelectOpen(false)}} className="text-p1 relative bg-p1 flex gap-2 items-center justify-start bg-opacity-25 hover:bg-opacity-80 hover:text-white transition-all duration-75 p-3">
+                                    COP <img className="h-4" src="flags/cop.webp"></img>
+                                </button>
                             </div>
                             
                             }
