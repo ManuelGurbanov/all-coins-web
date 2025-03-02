@@ -79,20 +79,20 @@ const Faq = () => {
   };
 
   return (
-    <div className="w-full sm:w-3/4 text-white sm:p-12 p-5 mb-12">
-      <h1 className='mb-10 font-semibold text-left text-3xl'>{translate('faqTitle', language)}</h1>
-      <section className='w-full min-h-full flex flex-col sm:flex-row items-start justify-center gap-5'>
+    <div className="w-full p-5 mb-12 text-white sm:w-3/4 sm:p-12" id='faq'>
+      <h1 className='mb-10 text-3xl font-semibold text-left'>{translate('faqTitle', language)}</h1>
+      <section className='flex flex-col items-start justify-center w-full min-h-full gap-5 sm:flex-row'>
         <div className='w-full h-full'>
           {faqs.slice(0, visibleCount).map((faq, index) => (
             <div
               key={index}
-              className='p-4 my-2 rounded-lg cursor-pointer flex flex-col items-start p1-gradient'
+              className='flex flex-col items-start p-4 my-2 rounded-lg cursor-pointer p1-gradient'
               onClick={() => toggleFaq(index)}
             >
-              <div className="font-extrabold text-center w-full">
+              <div className="w-full font-extrabold text-center">
                 {translate('faq' + faq.key, language)}
               </div>
-              {faq.isOpen && <div className="mt-2 text-center w-full">{translate(`answer${faq.key}`, language)}</div>}
+              {faq.isOpen && <div className="w-full mt-2 text-center">{translate(`answer${faq.key}`, language)}</div>}
             </div>
           ))}
         </div>
@@ -101,7 +101,7 @@ const Faq = () => {
         {visibleCount > 6 && (
           <button
             onClick={showLess}
-            className="px-4 py-2 text-white underline rounded hover:scale-105 transition ease-in cursor-pointer duration-75"
+            className="px-4 py-2 text-white underline transition duration-75 ease-in rounded cursor-pointer hover:scale-105"
           >
             {translate('showLess', language)}
           </button>
@@ -109,7 +109,7 @@ const Faq = () => {
         {visibleCount < faqs.length && (
           <button
             onClick={showMore}
-            className="px-4 py-2 text-white underline rounded hover:scale-105 transition ease-in cursor-pointer duration-75"
+            className="px-4 py-2 text-white underline transition duration-75 ease-in rounded cursor-pointer hover:scale-105"
           >
            {translate('showMore', language)}
           </button>

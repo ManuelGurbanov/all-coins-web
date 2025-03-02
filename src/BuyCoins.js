@@ -173,36 +173,17 @@ export default function BuyCoins() {
     const language = useLanguage().language;
 
     return (
-        <section className=" flex flex-col items-center justify-center w-full">
-            <section className=" flex flex-col items-center justify-center w-3/4">
-                <div className="bg-black w-full flex items-center justify-center flex-col lg:flex-row gap-0 lg:px-8 lg:py-2 lg:gap-4" data-aos="fade-up" data-aos-delay="300">
+        <section className="flex flex-col items-center justify-center w-full" id="buycoins">
+            <section className="flex flex-col items-center justify-center w-3/4 ">
+                <div className="flex flex-col items-center justify-center w-full gap-0 bg-black lg:flex-row lg:px-8 lg:py-2 lg:gap-4" data-aos="fade-up" data-aos-delay="300">
 
-                    
-                    <div className="lg:w-1/3 md:w-5/6 h-96 w-screen flex flex-col items-center justify-start lg:mt-6 text-p1 sm:text-lg font-semibold bg-zinc-900 sm:rounded-xl px-2 py-1 relative">
-                        <h1 className="z-20 w-full text-center text-3xl font-bold mt-8">{translate("OFERTA", language)}</h1>
-
-                        {offer && (
-                            <>
-                                <img className="w-32 z-20" src={offer.player} alt="Oferta" />
-                                <h3 className="z-20 font-bold text-lg">{translate("COMPRA", language)} <span className="text-white font-extrabold">{offer.buy}K</span></h3>
-                                <h3 className="z-20 font-bold text-lg">{translate("LLEVATE", language)} <span className="text-white font-extrabold">{offer.take}K</span></h3>
-                            </>
-                        )}
-
-                        <button className="z-20 bg-p1 rounded-full text-white font-semibold ring-1 ring-white px-3 py-1 hover:scale-105 duration-75 ease-in-out text-xl mt-2" onClick={openWhatsAppOffer}>
-                            {translate("INTERESTED", language)}
-                        </button>
-
-                        <img className="absolute w-full h-full top-0 left-0 sm:rounded-xl" src="stadiumBg2.webp" alt="Background" />
-                    </div>
-
-                    <div className="lg:w-2/3 md:w-5/6 h-96 w-screen flex flex-col gap-0 items-center justify-center lg:mt-6 text-white sm:text-lg font-semibold bg-zinc-900 sm:rounded-xl p-2 relative">
+                    <div className="relative flex flex-col items-center justify-center w-screen gap-0 p-2 font-semibold text-white lg:w-2/3 md:w-5/6 h-96 lg:mt-6 sm:text-lg bg-zinc-900 sm:rounded-xl">
                         
-                        <div className="w-full flex flex-row md:px-5 items-center justify-center md:justify-between gap-0 mb-3">
-                            <h1 className="text-p1 mt-1 mb-2 font-bold text-3xl w-full text-center md:text-right md:text-4xl">
+                        <div className="flex flex-row items-center justify-center w-full gap-0 mb-3 md:px-5 md:justify-between">
+                            <h1 className="w-full mt-1 mb-2 text-3xl font-bold text-center text-p1 md:text-right md:text-4xl">
                                 {translate("PEDIDO", language)}
                             </h1>  
-                            <div className="w-full flex flex-row items-center justify-center gap-0">
+                            <div className="flex flex-row items-center justify-center w-full gap-0">
 
                             <div 
                                 className={`transition duration-200 cursor-pointer h-16 w-16 flex items-center justify-center gap-3 ${
@@ -236,7 +217,7 @@ export default function BuyCoins() {
 
                         
                             
-                        <hr className="w-full bg-zinc-500 hidden lg:block"></hr>
+                        <hr className="hidden w-full bg-zinc-500 lg:block"></hr>
                         <BuyBox 
                             formatPrice={formatPrice} 
                             price={price} 
