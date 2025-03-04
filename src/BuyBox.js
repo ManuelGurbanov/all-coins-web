@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react';
 
 import { db, doc, getDoc } from './firebaseConfig';
 import GiftLogo from './GiftLogo';
+
+import RightArrow from './RightArrow';
+
 export default function BuyBox({
   formatPrice, 
   price, 
@@ -125,8 +128,8 @@ export default function BuyBox({
 
   return (
     <div className="w-full px-4">
-      <div className="flex items-center flex-col justify-center sm:mt-2 w-full"> 
-        <span className="text-white text-6xl font-bold sm:mb-0 gap-4 flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-full sm:mt-2"> 
+        <span className="flex items-center justify-center gap-4 text-6xl font-bold text-white sm:mb-0">
           {formatPrice(price)} <img src='coin.webp' className='w-12'></img>
         </span>
         <span className="text-xl font-bold text-yellow-400">
@@ -140,24 +143,26 @@ export default function BuyBox({
       </div>
 
       {/* Barra de Precios */}
-      <div className="w-full flex items-center justify-center sm:mt-4 mt-4 relative">
-        <button onClick={decreasePrice} className="px-4 py-2 text-white mr-4">&lt;</button>
+      <div className="relative flex items-center justify-center w-full mt-4 sm:mt-4">
+        <button onClick={decreasePrice} className="px-4 py-2 mr-4 text-white rotate-180">
+          <RightArrow/>
+        </button>
         
         <div 
-          className="flex-1 h-4 bg-gray-600 rounded-full relative cursor-pointer" 
+          className="relative flex-1 h-4 bg-gray-600 rounded-full cursor-pointer" 
           ref={barRef}
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart} 
         >
           {/* Progreso sin transición */}
           <div
-            className="h-full bg-p1 rounded-full"
+            className="h-full rounded-full bg-p1"
             style={{ width: `${calculatedProgress}%` }}
           />
 
           {/* Círculo en la punta del progreso sin transición */}
           <div 
-            className="absolute top-1/2 transform -translate-y-1/2 bg-white rounded-full"
+            className="absolute transform -translate-y-1/2 bg-white rounded-full top-1/2"
             style={{
               width: '20px',
               height: '20px',
@@ -167,7 +172,7 @@ export default function BuyBox({
 
           {/* Marcador para 250K */}
           {/* <div 
-            className="absolute -top-10 bg-yellow-400 px-2 py-1 text-black rounded-xl cursor-default flex items-center justify-center gap-1"
+            className="absolute flex items-center justify-center gap-1 px-2 py-1 text-black bg-yellow-400 cursor-default -top-10 rounded-xl"
             style={{
               left: `calc(${ratio250}% - 30px)`
             }}
@@ -177,7 +182,7 @@ export default function BuyBox({
 
           {/* Marcador para 1M 
           <div 
-            className="absolute -top-10 bg-yellow-400 px-2 py-1 text-black rounded-xl cursor-default flex items-center justify-center gap-1"
+            className="absolute flex items-center justify-center gap-1 px-2 py-1 text-black bg-yellow-400 cursor-default -top-10 rounded-xl"
             style={{
               left: `calc(${ratio1000}% - 30px)`
             }}
@@ -186,7 +191,7 @@ export default function BuyBox({
           </div> */}
 
           {/* Marcadores existentes (opcional, ajustalos si ya no se necesitan) */}
-          <div className="absolute -right-2 -bottom-8 sm:-bottom-11 flex flex-col items-center z-50">
+          <div className="absolute z-50 flex flex-col items-center -right-2 -bottom-8 sm:-bottom-11">
             <div className="w-[2px] h-7 bg-white mb-1"></div>
             <button 
               className="text-[10px] rounded-3xl p-1 text-white" 
@@ -217,13 +222,15 @@ export default function BuyBox({
           </div>
         </div>
         
-        <button onClick={increasePrice} className="px-4 py-2 text-white ml-4">&gt;</button>
+        <button onClick={increasePrice} className="px-4 py-2 ml-4 text-white">
+          <RightArrow/>
+        </button>
       </div>
 
-      <div className="mt-8 flex flex-col items-center justify-center w-full gap-2">
+      <div className="flex flex-col items-center justify-center w-full gap-2 mt-8">
         <button
           onClick={openWhatsApp}
-          className="px-6 py-3 bg-p1 text-white ring-1 ring-white rounded-full hover:scale-105 duration-75 ease-in-out sm:mb-0 mb-5"
+          className="px-6 py-3 mb-5 text-white duration-75 ease-in-out rounded-full bg-p1 ring-1 ring-white hover:scale-105 sm:mb-0"
         >
           {translate("buy", language)} <strong>{calculatePriceForCountry().toLocaleString()}</strong>
         </button>
