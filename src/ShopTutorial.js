@@ -48,7 +48,7 @@ export default function ShopTutorial() {
                             ${activeStep === step.id ? "bg-zinc-800 ring-2 ring-p1 scale-105" : "bg-zinc-950 ring-1 ring-p1"}
                         `}
                     >
-                        <h1 className="font-black text-p1 text-lg">PASO {step.id}</h1>
+                        <h1 className="font-black text-p1 text-lg">{translate("paso", language)} {step.id}</h1>
                         <h1 className="font-medium text-white text-xs lg:text-base">{step.title}</h1>
                     </div>
                 ))}

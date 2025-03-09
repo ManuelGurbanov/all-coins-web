@@ -12,7 +12,7 @@ export const useCountry = () => {
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState("es");
-  const [country, setCountry] = useState("CLP");
+  const [country, setCountry] = useState("EUR");
   return (
     <LanguageContext.Provider value={{ language, setLanguage, country, setCountry }}>
       {children}

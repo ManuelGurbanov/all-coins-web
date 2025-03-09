@@ -57,42 +57,21 @@ export default function BuyCoins() {
     }, [price]);
 
     const openWhatsApp = () => {
-        const message = `Hola ¿qué tal? Quería saber si se encuentran disponibles ${formatPriceMessage(price)} para ${platformSelected === "PSXB" ? "el mercado PS/XB" : "PC"}. Gracias!`;
+        const message = language === "es" 
+        ? `Hola ¿qué tal? Quería saber si se encuentran disponibles ${formatPriceMessage(price)} para ${platformSelected === "PSXB" ? "el mercado PS/XB" : "PC"}. Gracias!` 
+        : `Hi, how are you? I wanted to know if they are available ${formatPriceMessage(price)} for ${platformSelected === "PSXB" ? "the PS/XB market" : "PC"}. Thanks!`;
+
         const encodedMessage = encodeURIComponent(message);
         const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         window.open(url, "_blank");
     };
 
-    const openWhatsAppOffer = () => {
-        const message = offer.message;
-        const encodedMessage = encodeURIComponent(message);
-        const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-        window.open(url, "_blank");
-    };
-
-    const [platformSelected, setPlatformSelected] = useState("PS");
-
-    const fetchOffers = async () => {
-        try {
-            const querySnapshot = await getDocs(collection(db, "offers"));
-            if (!querySnapshot.empty) {
-                const offerData = querySnapshot.docs[0].data();
-                setOffer(offerData);
-            }
-        } catch (error) {
-            console.error("Error obteniendo ofertas:", error);
-        }
-    };
-
-    useEffect(() => {
-        fetchOffers();
-    }, []);
-    
+    const [platformSelected, setPlatformSelected] = useState("PSXB");    
     const minPrice = 50000;
     const maxPrice = 2000000;
     const barRef = useRef(null);
     const progress = (price / maxPrice) * 100;
-
+    
     const handleBarClick = (event) => {
         if (!barRef.current) return;
         
@@ -112,58 +91,61 @@ export default function BuyCoins() {
         setPrice(newPrice);
     };
 
-
     const [exchangeRates, setExchangeRates] = useState({
-        CLP: 0,
-        EUR: 0,
-        USD: 0,
+        CLP: { PC: 0, PSXB: 0 },
+        EUR: { PC: 0, PSXB: 0 },
+        USD: { PC: 0, PSXB: 0 },
+        MXN: { PC: 0, PSXB: 0 },
+        COP: { PC: 0, PSXB: 0 },
     });
-
-    useEffect(() => {
-        const fetchPrices = async () => {
-            console.log("Fetching prices...");
-            try {
-                const querySnapshot = await getDocs(collection(db, "prices"));
-                const pricesData = querySnapshot.docs.map(doc => doc.data());
+    
+    const fetchPrices = async () => {
+        console.log("Fetching prices...");
+        try {
+            const querySnapshot = await getDocs(collection(db, "prices"));
+            if (!querySnapshot.empty) {
+                const pricesData = querySnapshot.docs[0].data();
                 setPrices(pricesData);
-                
+    
                 setExchangeRates({
-                    CLP: pricesData[0]["CLP"] || 0,
-                    EUR: pricesData[0]["EUR"] || 0,
-                    USD: pricesData[0]["USD"] || 0,
-                    MXN: pricesData[0]["MXN"] || 0,
-                    COP: pricesData[0]["COP"] || 0,
+                    CLP: { PC: pricesData.CLP?.PC || 0, PSXB: pricesData.CLP?.PSXB || 0 },
+                    EUR: { PC: pricesData.EUR?.PC || 0, PSXB: pricesData.EUR?.PSXB || 0 },
+                    USD: { PC: pricesData.USD?.PC || 0, PSXB: pricesData.USD?.PSXB || 0 },
+                    MXN: { PC: pricesData.MXN?.PC || 0, PSXB: pricesData.MXN?.PSXB || 0 },
+                    COP: { PC: pricesData.COP?.PC || 0, PSXB: pricesData.COP?.PSXB || 0 },
                 });
-            } catch (error) {
-                console.error("Error fetching prices:", error);
             }
-        };
+        } catch (error) {
+            console.error("Error fetching prices:", error);
+        }
+    };
+    
+    useEffect(() => {
         fetchPrices();
     }, []);
-
+    
     useEffect(() => {
         console.log("Prices fetched:", exchangeRates);
     }, [exchangeRates]);
     
     const calculatePriceForCountry = () => {
-        const rate = exchangeRates[selectedCountry.country];
-        
-        if (!rate) {
-            return 0;
-        }
-        
-        const calculatedPrice = (price / 100000) * rate;
-        
-        let formattedPrice = calculatedPrice;
+        const rate = exchangeRates[selectedCountry.country]?.[platformSelected];
     
-        if (selectedCountry.country === "CLP" || selectedCountry.country === "COP" || selectedCountry.country === "MXN") {
+        if (!rate) {
+            return "No disponible";
+        }
+    
+        const calculatedPrice = (price / 100000) * rate;
+        let formattedPrice;
+    
+        if (["CLP", "COP", "MXN"].includes(selectedCountry.country)) {
             formattedPrice = "$" + Math.floor(calculatedPrice).toLocaleString("es-ES");
         } else if (selectedCountry.country === "EUR") {
             formattedPrice = "€" + calculatedPrice.toFixed(2);
         } else {
             formattedPrice = calculatedPrice.toFixed(2);
-        }        
-        
+        }
+    
         return formattedPrice + " " + selectedCountry.country.toUpperCase();
     };
     
@@ -230,6 +212,7 @@ export default function BuyCoins() {
                             barRef={barRef} 
                             handleBarClick={handleBarClick} 
                             progress={progress} 
+                            selectedPlatform = {platformSelected}
                             />
 
                     </div>

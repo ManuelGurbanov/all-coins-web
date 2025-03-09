@@ -7,7 +7,10 @@ export default function Boosting() {
     const phoneNumber = "34644847922";
     const language = useLanguage().language;
     const openWhatsApp = () => {
-      const message = `Hola ¿qué tal? Quería consultar por el servicio de Boosting. Gracias!`;
+      const message = language === "es" 
+        ? "👋🏼 ¡Hola! Me gustaría tener más información acerca del servicio de Boosting. Gracias!" 
+        : "👋🏼 Hi! I would like to get more information about the Boosting service. Thanks!";
+
       const encodedMessage = encodeURIComponent(message);
       const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       window.open(url, "_blank");

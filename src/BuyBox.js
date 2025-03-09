@@ -16,7 +16,8 @@ export default function BuyBox({
   setPrice, 
   openWhatsApp, 
   barRef, 
-  handleBarClick
+  handleBarClick,
+  selectedPlatform
 }) {
   const language = useLanguage().language;
   const [isDragging, setIsDragging] = useState(false);
@@ -71,23 +72,30 @@ export default function BuyBox({
     setIsDragging(false);
   };
 
-  const [bonusPercentage, setBonusPercentage] = useState(0);
+  const [bonusPercentage, setBonusPercentage] = useState({ PC: 0, PSXB: 0 });
+
   const [minCoinsForBonus, setMinCoinsForBonus] = useState(0);
 
   useEffect(() => {
     const fetchBonusConfig = async () => {
-      const docRef = doc(db, "discounts", "global");
-      const docSnap = await getDoc(docRef);
-      
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        setBonusPercentage(data.discountPercentage || 0);
-        setMinCoinsForBonus(data.minCoinsForDiscount || 0);
-      }
+        const docRef = doc(db, "discounts", "global");
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+
+            setBonusPercentage({
+                PC: data.PC || 0,
+                PSXB: data.PSXB || 0,
+            });
+
+            setMinCoinsForBonus(data.minCoinsForDiscount || 0);
+        }
     };
 
     fetchBonusConfig();
-  }, []);
+}, []);
+
 
   useEffect(() => {
     if (isDragging) {
@@ -110,12 +118,20 @@ export default function BuyBox({
   }, [isDragging]);
 
   const calculateBonusCoins = () => {
-    if (bonusPercentage === 0) return null;
-    if (price >= minCoinsForBonus) {
-      return (Math.floor((price * bonusPercentage) / 100) / 1000) + "K";
+    if (!selectedPlatform) {
+        console.log("No platform selected");
+        return null;
     }
-    return translate("LLEVATE2", language) + " " + minCoinsForBonus / 1000 + "K " + translate("LLEVATE3", language);
-  };
+
+    const platformBonusPercentage = bonusPercentage[selectedPlatform] || 0;
+
+    if (price >= minCoinsForBonus) {
+        return (Math.floor((price * platformBonusPercentage) / 100) / 1000) + "K";
+    }
+
+    return translate("LLEVATE2", language) + " " + (minCoinsForBonus / 1000) + "K " + translate("LLEVATE3", language);
+};
+
   
 
   const minPrice = 0;
@@ -151,16 +167,17 @@ export default function BuyBox({
         <div 
           className="relative flex-1 h-4 bg-gray-600 rounded-full cursor-pointer" 
           ref={barRef}
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart} 
+  
         >
-          {/* Progreso sin transición */}
+          <div onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} className='absolute w-full h-full top-0 left-0 cursor-pointer'>
+
+          </div>
           <div
             className="h-full rounded-full bg-p1"
             style={{ width: `${calculatedProgress}%` }}
           />
 
-          {/* Círculo en la punta del progreso sin transición */}
+
           <div 
             className="absolute transform -translate-y-1/2 bg-white rounded-full top-1/2"
             style={{
@@ -170,27 +187,6 @@ export default function BuyBox({
             }}
           />
 
-          {/* Marcador para 250K */}
-          {/* <div 
-            className="absolute flex items-center justify-center gap-1 px-2 py-1 text-black bg-yellow-400 cursor-default -top-10 rounded-xl"
-            style={{
-              left: `calc(${ratio250}% - 30px)`
-            }}
-          >
-            <div className="text-sm">+25</div> <img src='coin.webp' className='w-4'></img>
-          </div>
-
-          {/* Marcador para 1M 
-          <div 
-            className="absolute flex items-center justify-center gap-1 px-2 py-1 text-black bg-yellow-400 cursor-default -top-10 rounded-xl"
-            style={{
-              left: `calc(${ratio1000}% - 30px)`
-            }}
-          >
-            <div className="text-sm">+50K</div> <img src='coin.webp' className='w-4'></img>
-          </div> */}
-
-          {/* Marcadores existentes (opcional, ajustalos si ya no se necesitan) */}
           <div className="absolute z-50 flex flex-col items-center -right-2 -bottom-8 sm:-bottom-11">
             <div className="w-[2px] h-7 bg-white mb-1"></div>
             <button 
