@@ -58,8 +58,8 @@ export default function BuyCoins() {
 
     const openWhatsApp = () => {
         const message = language === "es" 
-        ? `Hola ¿qué tal? Quería saber si se encuentran disponibles ${formatPriceMessage(price)} para ${platformSelected === "PSXB" ? "el mercado PS/XB" : "PC"}. Gracias!` 
-        : `Hi, how are you? I wanted to know if they are available ${formatPriceMessage(price)} for ${platformSelected === "PSXB" ? "the PS/XB market" : "PC"}. Thanks!`;
+        ? `👋🏼 Hola! Estoy interesado en ${formatPriceMessage(price)} para ${platformSelected === "PSXB" ? "PS/XB" : "PC"}. Gracias!` 
+        : `👋🏼 Hi! I’m interested in ${formatPriceMessage(price)} for ${platformSelected === "PSXB" ? "PS/XB" : "PC"} platform. Thanks!`;
 
         const encodedMessage = encodeURIComponent(message);
         const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -132,7 +132,7 @@ export default function BuyCoins() {
         const rate = exchangeRates[selectedCountry.country]?.[platformSelected];
     
         if (!rate) {
-            return translate("LOADING", language);
+            return language === "es" ? "Cargando..." : "Loading...";
         }
     
         const calculatedPrice = (price / 100000) * rate;
