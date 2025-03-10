@@ -119,17 +119,21 @@ export default function BuyBox({
 
   const calculateBonusCoins = () => {
     if (!selectedPlatform) {
-        console.log("No platform selected");
         return null;
     }
 
     const platformBonusPercentage = bonusPercentage[selectedPlatform] || 0;
 
-    if (price >= minCoinsForBonus) {
-        return (Math.floor((price * platformBonusPercentage) / 100) / 1000) + "K";
+    if (price >= minCoinsForBonus && platformBonusPercentage > 0) {
+        const bonus = Math.floor((price * platformBonusPercentage) / 100) / 1000;
+        return bonus === 0 ? null : bonus + "K";
     }
 
-    return translate("LLEVATE2", language) + " " + (minCoinsForBonus / 1000) + "K " + translate("LLEVATE3", language);
+    if (minCoinsForBonus > 0 && platformBonusPercentage > 0) {
+        return translate("LLEVATE2", language) + " " + (minCoinsForBonus / 1000) + "K " + translate("LLEVATE3", language);
+    }
+
+    return null;
 };
 
   

@@ -132,7 +132,7 @@ export default function BuyCoins() {
         const rate = exchangeRates[selectedCountry.country]?.[platformSelected];
     
         if (!rate) {
-            return "No disponible";
+            return translate("LOADING", language);
         }
     
         const calculatedPrice = (price / 100000) * rate;

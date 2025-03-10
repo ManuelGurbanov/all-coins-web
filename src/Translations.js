@@ -1,5 +1,6 @@
 const translations = {
   en: {
+    "LOADING" : "Loading...",
     "Inicio": "Home",
     "Sobre Nosotros": "About Us",
     "Vender Monedas": "Sell Coins",
@@ -72,6 +73,7 @@ const translations = {
     "paso" : "STEP"
 },
   es: {
+      "LOADING" : "Cargando...",
       "Inicio": "Inicio",
       "Sobre Nosotros": "Sobre Nosotros",
       "Vender Monedas": "Vender Monedas",

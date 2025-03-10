@@ -8,7 +8,7 @@ export default function Footer () {
             <img className="h-32" src="logo.webp">
             </img>
             </div>
-            <div className="grid items-center justify-center w-full grid-cols-2">
+            <div className="sm:grid items-center justify-center w-full sm:grid-cols-2 flex flex-col">
                 <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold">Inicio</a>
                 <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold" href="#buycoins">Comprar Monedas</a>
                 <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold" href="#boosting">Boosting</a>
@@ -22,6 +22,9 @@ export default function Footer () {
                 </a>
                 <img className="h-12 transition-all duration-75 hover:scale-105" src="logos/instagram.webp">
                 </img>
+                <a className="w-full mb-2 text-center font-bold cursor-pointer underline text-semibold text-p1" href="https://portfolio-manuel-gurbanov.vercel.app/">
+                ¿Quién hizo esta Web?
+                </a>
             </a>
         </section>
     )
