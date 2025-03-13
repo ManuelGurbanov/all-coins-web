@@ -171,9 +171,9 @@ export default function BuyBox({
         <div 
           className="relative flex-1 h-4 bg-gray-600 rounded-full cursor-pointer" 
           ref={barRef}
-  
+          
         >
-          <div onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} className='absolute w-full h-full top-0 left-0 cursor-pointer'>
+          <div  className='absolute w-full h-full top-0 left-0 cursor-pointer' onMouseDown={handleMouseDown} onTouchStart={handleTouchStart}>
 
           </div>
           <div
@@ -187,11 +187,13 @@ export default function BuyBox({
             style={{
               width: '20px',
               height: '20px',
-              left: `calc(${calculatedProgress}% - 10px)`
+              left: `calc(${calculatedProgress}% - 10px)`,
+              pointerEvents: 'none'
             }}
           />
 
-          <div className="absolute z-50 flex flex-col items-center -right-2 -bottom-8 sm:-bottom-11">
+
+        <div className="absolute z-50 flex flex-col items-center -right-2 -bottom-8 sm:-bottom-11">
             <div className="w-[2px] h-7 bg-white mb-1"></div>
             <button 
               className="text-[10px] rounded-3xl p-1 text-white" 
@@ -221,6 +223,8 @@ export default function BuyBox({
             </button>
           </div>
         </div>
+
+
         
         <button onClick={increasePrice} className="px-4 py-2 ml-4 text-white">
           <RightArrow/>
