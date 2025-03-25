@@ -30,7 +30,7 @@ export default function AdminPanel() {
     }, []);
 
     const handleLogin = () => {
-        if (name === "juan" && password === "taffetani") {
+        if (name === "Juantaff" && password === "44218105") {
             setIsAuthenticated(true);
         } else {
             alert("Credenciales incorrectas");
