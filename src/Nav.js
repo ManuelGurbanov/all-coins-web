@@ -24,7 +24,8 @@ export default function Nav() {
         "EUR": "flags/eur.webp",
         "USD": "flags/eeuu.webp",
         "MXN": "flags/mxn.webp",
-        "COP": "flags/cop.webp"
+        "COP": "flags/cop.webp",
+        "ARG": "flags/arg.webp"
     }
 
     return (
@@ -60,6 +61,9 @@ export default function Nav() {
                                 </button>
                                 <button onClick={() => {setCountry("COP"); setIsCountrySelectOpen(false)}} className="text-p1 relative bg-p1 flex gap-2 items-center justify-start bg-opacity-25 hover:bg-opacity-80 hover:text-white transition-all duration-75 p-3">
                                     COP <img className="h-4" src="flags/cop.webp"></img>
+                                </button>
+                                <button onClick={() => {setCountry("ARS"); setIsCountrySelectOpen(false)}} className="text-p1 relative bg-p1 flex gap-2 items-center justify-start bg-opacity-25 hover:bg-opacity-80 hover:text-white transition-all duration-75 p-3">
+                                    ARS <img className="h-4" src="flags/arg.webp"></img>
                                 </button>
                             </div>
                             

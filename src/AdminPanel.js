@@ -3,7 +3,7 @@ import { db } from "./firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 export default function AdminPanel() {
-    const [prices, setPrices] = useState({ CLP: {}, USD: {}, EUR: {}, COP: {}, MXN: {} });
+    const [prices, setPrices] = useState({ CLP: {}, USD: {}, EUR: {}, COP: {}, MXN: {}, ARS: {}});
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);

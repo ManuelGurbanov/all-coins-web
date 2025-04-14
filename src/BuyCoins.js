@@ -97,6 +97,7 @@ export default function BuyCoins() {
         USD: { PC: 0, PSXB: 0 },
         MXN: { PC: 0, PSXB: 0 },
         COP: { PC: 0, PSXB: 0 },
+        ARS: { PC: 0, PSXB: 0 },
     });
     
     const fetchPrices = async () => {
@@ -113,6 +114,7 @@ export default function BuyCoins() {
                     USD: { PC: pricesData.USD?.PC || 0, PSXB: pricesData.USD?.PSXB || 0 },
                     MXN: { PC: pricesData.MXN?.PC || 0, PSXB: pricesData.MXN?.PSXB || 0 },
                     COP: { PC: pricesData.COP?.PC || 0, PSXB: pricesData.COP?.PSXB || 0 },
+                    ARS: { PC: pricesData.ARS?.PC || 0, PSXB: pricesData.ARS?.PSXB || 0 },
                 });
             }
         } catch (error) {
@@ -138,7 +140,7 @@ export default function BuyCoins() {
         const calculatedPrice = (price / 100000) * rate;
         let formattedPrice;
     
-        if (["CLP", "COP", "MXN"].includes(selectedCountry.country)) {
+        if (["CLP", "COP", "MXN", "ARS"].includes(selectedCountry.country)) {
             formattedPrice = "$" + Math.floor(calculatedPrice).toLocaleString("es-ES");
         } else if (selectedCountry.country === "EUR") {
             formattedPrice = "€" + calculatedPrice.toFixed(2);
