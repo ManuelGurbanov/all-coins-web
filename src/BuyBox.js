@@ -311,7 +311,7 @@ export default function BuyBox({
       </div>
 
       {/* Input para código de descuento */}
-      <div className="flex flex-col items-center justify-center w-full gap-2 mt-6">
+      {/* <div className="flex flex-col items-center justify-center w-full gap-2 mt-6">
         <input
           type="text"
           placeholder={language === "es" ? "Código de descuento" : "Discount code"}
@@ -335,9 +335,9 @@ export default function BuyBox({
             ❌ {language === "es" ? "Código inválido" : "Invalid code"}
           </span>
         )}
-      </div>
+      </div> */}
 
-      <div className="flex flex-col items-center justify-center w-full gap-2 mt-4">
+      <div className="flex flex-col items-center justify-center w-full gap-2 mt-6">
         <button
           onClick={handleOpenWhatsApp}
           className="px-6 py-3 mb-5 text-white duration-75 ease-in-out rounded-full bg-p1 ring-1 ring-white hover:scale-105 sm:mb-0"
