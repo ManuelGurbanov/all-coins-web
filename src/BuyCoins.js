@@ -161,7 +161,7 @@ export default function BuyCoins() {
             <section className="flex flex-col items-center justify-center w-3/4 ">
                 <div className="flex flex-col items-center justify-center w-full gap-0 bg-black lg:flex-row lg:px-8 lg:py-2 lg:gap-4" data-aos="fade-up" data-aos-delay="300">
 
-                    <div className="relative flex flex-col items-center justify-center w-screen gap-0 p-2 font-semibold text-white lg:w-2/3 md:w-5/6 h-96 lg:mt-6 sm:text-lg bg-zinc-900 sm:rounded-xl">
+                    <div className="relative flex flex-col items-center justify-center w-screen gap-0 p-2 font-semibold text-white lg:w-2/3 md:w-5/6 min-h-96 lg:mt-6 sm:text-lg bg-zinc-900 sm:rounded-xl">
                         
                         <div className="flex flex-row items-center justify-center w-full gap-0 mb-3 md:px-5 md:justify-between">
                             <h1 className="w-full mt-1 mb-2 text-3xl font-bold text-center text-p1 md:text-right md:text-4xl">
@@ -215,7 +215,7 @@ export default function BuyCoins() {
                             handleBarClick={handleBarClick} 
                             progress={progress} 
                             selectedPlatform = {platformSelected}
-                            />
+                        />
 
                     </div>
                 </div>
