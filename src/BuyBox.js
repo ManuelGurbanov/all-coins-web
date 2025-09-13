@@ -217,7 +217,7 @@ export default function BuyBox({
         <span className="flex items-center justify-center gap-4 text-6xl font-bold text-white sm:mb-0">
           {formatPrice(price)} <img src='coin.webp' className='w-12'></img>
         </span>
-        <span className="text-xl font-bold text-yellow-400">
+        <span className="text-xl font-bold text-[#2bff00]">
           {calculateBonusCoins() != null ? (
             <div className='flex items-center justify-center text-2xl'>
               ¡{calculateBonusCoins()} <GiftLogo/> !

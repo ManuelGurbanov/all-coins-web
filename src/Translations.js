@@ -67,9 +67,9 @@ const translations = {
     "sellCoins" : "To start selling your coins, please contact us through WhatsApp.",
     "aboutUs" : "About Us",
     "reason1": "+9.000 sales made",
-    "reason2": "+8 years of experience",
+    "reason2": "+9 years of experience",
     "reason3": "+3.400 satisfied customers",
-    "reason4": "+1000 Millon coins delivered",
+    "reason4": "+1800 Millon coins delivered",
     "paso" : "STEP"
 },
   es: {
@@ -137,9 +137,9 @@ const translations = {
       "sellCoins" : "Para comenzar a vender tus monedas, por favor contactanos a través de WhatsApp.",
       "aboutUs" : "Sobre Nosotros",
       "reason1": "+9.000 ventas realizadas",
-      "reason2": "+8 años de experiencia",
+      "reason2": "+9 años de experiencia",
       "reason3": "+3.400 clientes satisfechos",
-      "reason4": "+1000 millones de monedas entregadas",
+      "reason4": "+1800 millones de monedas entregadas",
       "paso" : "PASO"
   }
 };

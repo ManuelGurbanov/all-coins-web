@@ -15,7 +15,7 @@ export default function AboutUs() {
           <>
             <div className="flex flex-col sm:flex-row w-4/5 items-center justify-center gap-4">
               <p className="mb-4 w-full text-left text-3xl sm:p-8">
-                We started with this project <strong>more than 8 years ago</strong>, in FIFA 18. We started with a PlayStation console, 
+                We started with this project <strong>more than 9 years ago</strong>, in FIFA 18. We started with a PlayStation console, 
                 playing and getting our own coins all day, and selling them privately to friends.
               </p>
 
@@ -93,7 +93,7 @@ export default function AboutUs() {
           <>
           <div className="flex flex-col sm:flex-row w-4/5 items-center justify-start gap-4">
                 <p className="mb-4 w-full text-left text-3xl sm:p-8">
-                  Comenzamos con este proyecto hace <strong>más de 8 años</strong>, en FIFA 18. Todo inició con una PlayStation, 
+                  Comenzamos con este proyecto hace <strong>más de 9 años</strong>, en FIFA 18. Todo inició con una PlayStation, 
                   jugando y consiguiendo nuestras propias monedas durante todo el día, para luego venderlas de manera particular 
                   a amigos y conocidos.
                 </p>
