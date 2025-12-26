@@ -19,7 +19,7 @@ const translations = {
     "PASO3": "You will list the player with the specifications that we will indicate to you and you will send us a photo, so we can find the card on the market and send you the coins through his auction.",
     "PASO4": "Done!",
     "PAGO": "Payment Methods",
-    "BOOSTING": "Ask about our Boosting Service!",
+    "BOOSTING": "BOOSTING",
     "RANGO": "We achieve that range that is difficult for you to reach",
 
     "faq1": "How does the transfer method work?",
@@ -92,7 +92,7 @@ const translations = {
       "PASO3": "Publicarás el jugador con las especificaciones que te indiquemos, y nos enviarás una foto para poder encontrarlo en el mercado y enviarte las monedas mediante su puja.",
       "PASO4": "¡Listo!",
       "PAGO": "Métodos de Pago",
-      "BOOSTING": "¡Pregunta por nuestro Servicio de Boosting!",
+      "BOOSTING": "Servicio de Boosting",
       "RANGO": "Conseguimos ese rango al que te cuesta llegar",
 
       "faq1": "¿Cómo es el método de traspaso?",

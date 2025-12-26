@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "./firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
+import BoostingPriceUploader from "./BoostingPriceUploader";
 
 export default function AdminPanel() {
     const [prices, setPrices] = useState({ CLP: {}, USD: {}, EUR: {}, COP: {}, MXN: {}, ARS: {}});
@@ -98,9 +99,12 @@ export default function AdminPanel() {
                         <button className="w-full py-2 mt-2 bg-gray-500 rounded hover:bg-gray-600" onClick={() => setMenuOption(null)}>Volver al Menú</button>
                     </div>
                 </div>
+            ) : menuOption === "setBoosting" ? (
+                <BoostingPriceUploader/>
             ) : (
                 <div className="w-full max-w-2xl mt-12">
                     <h2 className="mb-4 text-2xl font-bold text-center">Menú Administrador</h2>
+                    <button className="w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600" onClick={() => setMenuOption("setBoosting")}>Editar Boosting</button>
                     <button className="w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600" onClick={() => setMenuOption("setPrices")}>Editar Precios</button>
                     <button className="w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600" onClick={() => setMenuOption("setDiscounts")}>Configurar Descuentos</button>
                 </div>

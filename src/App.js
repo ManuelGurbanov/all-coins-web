@@ -45,11 +45,11 @@ function Home() {
   return (
     <>
       <MainBanner/>
+      <Boosting/>
       <BuyCoins/>
       <div className="flex flex-col items-center justify-start w-full sm:mt-12 stadium-bg">
       <Payment />
       <DataBlock />
-      <Boosting/>
       <Faq/>
       </div>
     </>
