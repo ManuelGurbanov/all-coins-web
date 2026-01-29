@@ -16,16 +16,17 @@ export default function Footer () {
                 <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold" href="/sobre-nosotros">Sobre Nosotros</a>
                 <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold" href="/vender-monedas">Vende tus Monedas</a>
             </div>
-            <a className="flex flex-col items-center justify-center w-full" href="https://www.instagram.com/allcoinsfut/" target="_blank" rel="noopener noreferrer">
-                <a className="w-full mb-2 font-bold text-center duration-75 cursor-pointer hover:scale-105 text-p1" >
+            <div className="flex flex-col items-center justify-center w-full">
+                <a className="w-full mb-2 font-bold text-center duration-75 cursor-pointer hover:scale-105 text-p1" href="https://www.instagram.com/allcoinsfut/" target="_blank" rel="noopener noreferrer">
                     ¡Seguinos en Instagram!
                 </a>
-                <img className="h-12 transition-all duration-75 hover:scale-105" src="logos/instagram.webp">
-                </img>
-                <a className="w-full mb-2 text-center font-bold cursor-pointer underline text-semibold text-p1" href="https://portfolio-manuel-gurbanov.vercel.app/">
+                <a href="https://www.instagram.com/allcoinsfut/" target="_blank" rel="noopener noreferrer">
+                  <img className="h-12 transition-all duration-75 hover:scale-105" src="logos/instagram.webp" alt="Instagram" />
+                </a>
+                <a className="w-full mb-2 text-center font-bold cursor-pointer underline text-semibold text-p1" href="https://portfolio-manuel-gurbanov.vercel.app/" target="_blank" rel="noopener noreferrer">
                 ¿Quién hizo esta Web?
                 </a>
-            </a>
+            </div>
         </section>
     )
 }

@@ -80,7 +80,7 @@ const Faq = () => {
 
   return (
     <div className="w-full p-5 mb-12 text-white sm:w-3/4 sm:p-12" id='faq'>
-      <h1 className='mb-10 text-3xl font-semibold text-left'>{translate('faqTitle', language)}</h1>
+      <h2 className='mb-10 text-3xl font-semibold text-left'>{translate('faqTitle', language)}</h2>
       <section className='flex flex-col items-start justify-center w-full min-h-full gap-5 sm:flex-row'>
         <div className='w-full h-full'>
           {faqs.slice(0, visibleCount).map((faq, index) => (

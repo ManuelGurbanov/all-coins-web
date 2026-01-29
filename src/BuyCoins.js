@@ -164,9 +164,9 @@ export default function BuyCoins() {
                     <div className="relative flex flex-col items-center justify-center w-screen gap-0 p-2 font-semibold text-white lg:w-2/3 md:w-5/6 min-h-96 lg:mt-6 sm:text-lg bg-zinc-900 sm:rounded-xl">
                         
                         <div className="flex flex-row items-center justify-center w-full gap-0 mb-3 md:px-5 md:justify-between">
-                            <h1 className="w-full mt-1 mb-2 text-3xl font-bold text-center text-p1 md:text-right md:text-4xl">
+                            <h2 className="w-full mt-1 mb-2 text-3xl font-bold text-center text-p1 md:text-right md:text-4xl">
                                 {translate("PEDIDO", language)}
-                            </h1>  
+                            </h2>  
                             <div className="flex flex-row items-center justify-center w-full gap-0">
 
                             <div 

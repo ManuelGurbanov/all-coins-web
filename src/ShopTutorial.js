@@ -17,7 +17,7 @@ export default function ShopTutorial() {
             
         {/* Sección para móviles */}
         <div className="md:hidden flex flex-col items-center w-full p-4 h-dvh">
-            <h1 className="mt-4 mb-2 font-black text-black text-4xl text-center text-nowrap">{translate("COMO", language)}</h1>
+            <h2 className="mt-4 mb-2 font-black text-black text-4xl text-center text-nowrap">¿Cómo comprar monedas FC 25?</h2>
             <div className="flex justify-start gap-4 mb-4">
                 {steps.map((step) => (
                     <button 
@@ -32,14 +32,14 @@ export default function ShopTutorial() {
                 ))}
             </div>
             <img className="w-full h-[50vh] object-contain" src={steps[activeStep - 1].link} alt="Phone tutorial" />
-            <h1 className="mt-4 font-black text-black text-xl text-center">{steps[activeStep - 1].title}</h1>
+            <h2 className="mt-4 font-black text-black text-xl text-center">{steps[activeStep - 1].title}</h2>
         </div>
 
         {/* Sección para pantallas grandes */}
         <div className="hidden md:flex h-screen w-screen flex-row gap-2 items-center justify-center">
             {/* Sección Izquierda */}
             <section className="w-1/2 h-auto flex flex-col items-center justify-start gap-4 mb-3">
-                <h1 className="font-black text-black text-4xl w-full text-center mt-2">{translate("COMO", language)}</h1>
+                <h2 className="font-black text-black text-4xl w-full text-center mt-2">¿Cómo comprar monedas FC 25?</h2>
                 {steps.map((step) => (
                     <div 
                         key={step.id} 
@@ -48,8 +48,8 @@ export default function ShopTutorial() {
                             ${activeStep === step.id ? "bg-zinc-800 ring-2 ring-p1 scale-105" : "bg-zinc-950 ring-1 ring-p1"}
                         `}
                     >
-                        <h1 className="font-black text-p1 text-lg">{translate("paso", language)} {step.id}</h1>
-                        <h1 className="font-medium text-white text-xs lg:text-base">{step.title}</h1>
+                        <h2 className="font-black text-p1 text-lg">{translate("paso", language)} {step.id}</h2>
+                        <h2 className="font-medium text-white text-xs lg:text-base">{step.title}</h2>
                     </div>
                 ))}
             </section>
