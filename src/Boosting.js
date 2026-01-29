@@ -165,17 +165,31 @@ export default function Boosting() {
   };
 
   return (
-    <div 
-    data-aos="fade-up" 
-    data-aos-delay="200"
-    className="w-full flex flex-col items-center justify-start min-h-screen px-4 py-16 text-white bg-zinc-900 bg-opacity-45">
-      {/* Título Principal */}
-      <h1 className=" text-6xl font-bold text-center text-p1">
-        {translate("BOOSTING", language)}
-      </h1>
-          <h2 className="text-xl font-semibold text-center mb-12 text-gray-300">
-            {translate("RANGO", language)}
-          </h2>
+    <>
+      {/* Sección Hero SEO */}
+      <div className="w-full flex flex-col items-center justify-center px-4 py-16 text-white bg-zinc-900 bg-opacity-45">
+        <h1 className="text-6xl font-bold text-center text-p1">
+          Compra fifa coins seguras con entrega inmediata.
+        </h1>
+        <p className="text-xl font-semibold text-center mb-12 text-gray-300">
+          Ofrecemos fifa coins rápidas, seguras y sin riesgos, con atención personalizada y más de ocho años de experiencia comprobada.
+        </p>
+        <a href="#buycoins" className="px-6 py-3 mb-5 text-white duration-75 ease-in-out rounded-full bg-p1 ring-1 ring-white hover:scale-105 sm:mb-0">
+          Haz tu pedido ahora mismo.
+        </a>
+      </div>
+
+      <div
+      data-aos="fade-up"
+      data-aos-delay="200"
+      className="w-full flex flex-col items-center justify-start min-h-screen px-4 py-16 text-white bg-zinc-900 bg-opacity-45">
+        {/* Título Principal */}
+        <h2 className=" text-6xl font-bold text-center text-p1">
+          {translate("BOOSTING", language)}
+        </h2>
+            <h2 className="text-xl font-semibold text-center mb-12 text-gray-300">
+              {translate("RANGO", language)}
+            </h2>
       {/* Contenedor Principal - Layout de 3 Columnas */}
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[280px_1fr_320px] gap-6">
         
@@ -379,5 +393,6 @@ export default function Boosting() {
         </div>
       </div>
     </div>
+    </>
   );
 }

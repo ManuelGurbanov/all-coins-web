@@ -154,9 +154,9 @@ export default function BoostingPriceUploader() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-900">
       <div className="w-full max-w-2xl p-8 bg-gray-800 rounded-lg">
-        <h1 className="mb-6 text-3xl font-bold text-center text-white">
+        <h2 className="mb-6 text-3xl font-bold text-center text-white">
           Gestor de Precios de Boosting
-        </h1>
+        </h2>
 
         <div className="mb-6">
           <button

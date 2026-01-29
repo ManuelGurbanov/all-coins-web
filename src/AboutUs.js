@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLanguage } from "./LanguageContext";
 
 export default function AboutUs() {
   const language = useLanguage().language;
 
+  useEffect(() => {
+    const originalTitle = document.title;
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const originalDescription = metaDescription?.getAttribute('content');
+
+    document.title = 'Conoce cómo nació nuestro negocio de monedas del fifa. All Coins Fut.';
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Más de 8 años vendiendo monedas del fifa de forma segura. Conoce cómo empezó todo y por qué miles de jugadores nos eligen cada temporada. Somos All Coins Fut.');
+    }
+
+    return () => {
+      document.title = originalTitle;
+      if (metaDescription && originalDescription) {
+        metaDescription.setAttribute('content', originalDescription);
+      }
+    };
+  }, []);
+
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-start mt-20 text-white px-6">
-      <h1 className="text-4xl font-bold text-center mb-8" data-aos="fade-up">
-        {language === "en" ? "About Us" : "Sobre Nosotros"}
-      </h1>
+    <>
+      <div className="w-full min-h-screen flex flex-col items-center justify-start mt-20 text-white px-6">
+        <p className="text-4xl font-bold text-center mb-8" data-aos="fade-up">
+          {language === "en" ? "About Us" : "Sobre Nosotros"}
+        </p>
+        <h1 className="text-6xl font-bold text-center text-p1" data-aos="fade-up">
+          Más de 8 años liderando la venta de monedas del fifa.
+        </h1>
 
       <div className="max-w-3xl text-2xl leading-7 text-center flex items-center justify-center flex-col p-6" data-aos="fade-up">
         {language === "en" ? (
@@ -49,6 +71,18 @@ export default function AboutUs() {
             <p className="mb-4">
               And this is not the end… Now, with all our effort, we have taken a step further with the development of 
               <strong> our own website</strong> 🚀
+            </p>
+
+            <h2 className="text-6xl font-bold text-center text-p1 mt-12">
+              Why trust us to buy fifa coins?
+            </h2>
+            <p className="text-xl font-semibold text-center mb-12 text-gray-300">
+              At All Coins Fut you buy fast, safe and with guaranteed personalized attention.<br/>
+              1. Proven experience since FIFA 18<br/>
+              2. Direct WhatsApp support always active<br/>
+              3. Over one billion coins delivered<br/>
+              4. Fast deliveries without complications<br/>
+              5. Global community of satisfied customers
             </p>
 
             <h2 className="text-3xl font-bold mt-8 text-center text-p1 mb-3">Do I need to buy coins?</h2>
@@ -130,7 +164,19 @@ export default function AboutUs() {
                 <strong> nuestra propia página web</strong> 🚀
               </p>
 
-              <h2 className="text-3xl font-bold mt-8 text-center text-p1 mb-3">¿Necesito comprar monedas?</h2>
+              <h2 className="text-6xl font-bold text-center text-p1 mt-12">
+              ¿Por qué confiar en nosotros para comprar monedas fifa?
+            </h2>
+            <p className="text-xl font-semibold text-center mb-12 text-gray-300">
+              En All Coins Fut compras rápido, seguro y con atención personalizada garantizada.<br/>
+              1. Experiencia comprobada desde FIFA 18<br/>
+              2. Atención directa por WhatsApp siempre activa<br/>
+              3. Más de mil millones de monedas entregadas<br/>
+              4. Envíos rápidos y sin complicaciones<br/>
+              5. Comunidad global de clientes satisfechos
+            </p>
+
+            <h2 className="text-3xl font-bold mt-8 text-center text-p1 mb-3">¿Necesito comprar monedas?</h2>
             <p className="mb-4 text-lg">
               En EA FC Ultimate Team, <strong>las monedas lo son todo.</strong> No solo porque puedes comprar lo que quieras con ellas 
               (excepto partidos o árbitros 😂), sino también para no quedarte atrás del resto.
@@ -169,5 +215,6 @@ export default function AboutUs() {
         )}
       </div>
     </div>
+    </>
   );
 }
