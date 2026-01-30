@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { translate } from "./Translations";
-
-import { useLanguage } from "./LanguageContext";
 
 export default function SellCoins({openWhatsApp}) {
-    const language = useLanguage().language;
     const [activeFaq, setActiveFaq] = useState(null);
 
     const faqData = [

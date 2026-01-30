@@ -23,7 +23,7 @@ export default function BuyBox({
   const [isDragging, setIsDragging] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [appliedDiscount, setAppliedDiscount] = useState(0);
-  const [isValidCode, setIsValidCode] = useState(false);
+  const [, setIsValidCode] = useState(false);
 
   // Diccionario de códigos de descuento
   const discountCodes = {
@@ -107,10 +107,11 @@ export default function BuyBox({
 }, []);
 
   // Manejar el código de descuento
+  // eslint-disable-next-line no-unused-vars
   const handleDiscountCode = (code) => {
     setDiscountCode(code);
     const upperCode = code.toUpperCase();
-    
+
     if (discountCodes[upperCode]) {
       setAppliedDiscount(discountCodes[upperCode]);
       setIsValidCode(true);
@@ -182,6 +183,7 @@ export default function BuyBox({
       document.removeEventListener('touchmove', handleTouchMove);
       document.removeEventListener('touchend', handleTouchEnd);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDragging]);
 
   const calculateBonusCoins = () => {
@@ -208,14 +210,16 @@ export default function BuyBox({
   const calculatedProgress = ((price - minPrice) / (maxPrice - minPrice)) * 100;
 
   // Posiciones para los marcadores:
+  // eslint-disable-next-line no-unused-vars
   const ratio250 = ((500000 - minPrice) / (maxPrice - minPrice)) * 100; // ~7.89%
+  // eslint-disable-next-line no-unused-vars
   const ratio1000 = ((1000000 - minPrice) / (maxPrice - minPrice)) * 100; // ~47.37%
 
   return (
     <div className="w-full px-4 mb-8">
       <div className="flex flex-col items-center justify-center w-full sm:mt-2"> 
         <span className="flex items-center justify-center gap-4 text-6xl font-bold text-white sm:mb-0">
-          {formatPrice(price)} <img src='coin.webp' className='w-12'></img>
+          {formatPrice(price)} <img src='coin.webp' className='w-12' alt="Monedas" />
         </span>
         <span className="text-xl font-bold text-[#2bff00]">
           {calculateBonusCoins() != null ? (

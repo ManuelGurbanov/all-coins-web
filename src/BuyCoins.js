@@ -1,11 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ShopTutorial from "./ShopTutorial";
 import { db } from "./firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
-import { useEffect } from "react";
 import { useCountry } from "./LanguageContext";
-
-import { doc, getDoc } from "firebase/firestore";
 
 import { translate } from "./Translations";
 
@@ -14,12 +11,10 @@ import BuyBox from "./BuyBox";
 
 export default function BuyCoins() {
     const [price, setPrice] = useState(250000);
-    const [offer, setOffer] = useState(null);
-    const pricePer100 = 3000;
     const phoneNumber = "34644847922";
 
-    const [prices, setPrices] = useState([]);
-    const [bonusCoins, setBonusCoins] = useState(0);
+    const [, setPrices] = useState([]);
+    const [, setBonusCoins] = useState(0);
     const selectedCountry = useCountry();
 
     const increasePrice = () => {
@@ -54,6 +49,7 @@ export default function BuyCoins() {
 
     useEffect(() => {
         setBonusCoins(calculateBonusCoins());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [price]);
 
     const openWhatsApp = () => {
@@ -177,8 +173,7 @@ export default function BuyCoins() {
                                 }`} 
                                 onClick={() => setPlatformSelected("PSXB")}
                                 >
-                                <img src="platforms/ps4xbox.webp" className="w-1/2 h-1/2">
-                                </img>
+                                <img src="platforms/ps4xbox.webp" className="w-1/2 h-1/2" alt="PS4/Xbox" />
                             </div>
 
 
@@ -190,8 +185,7 @@ export default function BuyCoins() {
                                 }`} 
                                 onClick={() => setPlatformSelected("PC")}
                                 >
-                                <img src="platforms/origin.webp" className="w-1/2 h-1/2">
-                                </img>
+                                <img src="platforms/origin.webp" className="w-1/2 h-1/2" alt="PC" />
                             </div>
 
                             </div>

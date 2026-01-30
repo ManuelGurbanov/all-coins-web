@@ -5,11 +5,10 @@ export default function Footer () {
     return (
         <section className="flex flex-row items-center justify-between w-full px-2 py-8 text-xs text-white bg-black sm:px-24 sm:text-base">
             <div className="flex flex-col items-center justify-center w-full">
-            <img className="h-32" src="logo.webp">
-            </img>
+            <img className="h-32" src="logo.webp" alt="All Coins FUT" />
             </div>
             <div className="sm:grid items-center justify-center w-full sm:grid-cols-2 flex flex-col">
-                <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold">Inicio</a>
+                <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold" href="/">Inicio</a>
                 <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold" href="#buycoins">Comprar Monedas</a>
                 <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold" href="#boosting">Boosting</a>
                 <a className="w-full mb-2 text-center cursor-pointer hover:underline text-semibold" href="#payment">Métodos de Pago</a>
