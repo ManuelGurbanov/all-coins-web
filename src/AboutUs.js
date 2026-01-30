@@ -41,8 +41,7 @@ export default function AboutUs() {
                 playing and getting our own coins all day, and selling them privately to friends.
               </p>
 
-              <img src="Messi.webp" className="w-3/4 sm:w-64 rounded-xl mb-4">
-              </img>
+              <img src="Messi.webp" className="w-3/4 sm:w-64 rounded-xl mb-4" alt="Messi" />
             </div>
 
 
@@ -132,7 +131,7 @@ export default function AboutUs() {
                   a amigos y conocidos.
                 </p>
 
-                <img src="Messi.webp" className="w-3/4 sm:w-64 rounded-xl mb-4"></img>
+                <img src="Messi.webp" className="w-3/4 sm:w-64 rounded-xl mb-4" alt="Messi" />
               </div>
 
               <p className="mb-4">
