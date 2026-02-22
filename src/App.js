@@ -45,8 +45,8 @@ function Home() {
   return (
     <>
       <MainBanner/>
-      <Boosting/>
       <BuyCoins/>
+      <Boosting/>
       <div className="flex flex-col items-center justify-start w-full sm:mt-12 stadium-bg">
       <Payment />
       <DataBlock />
