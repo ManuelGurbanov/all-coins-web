@@ -11,7 +11,7 @@ export default function AboutUs() {
 
     document.title = 'Conoce cómo nació nuestro negocio de monedas del fifa. All Coins Fut.';
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Más de 8 años vendiendo monedas del fifa de forma segura. Conoce cómo empezó todo y por qué miles de jugadores nos eligen cada temporada. Somos All Coins Fut.');
+      metaDescription.setAttribute('content', 'Más de 12 años vendiendo monedas del fifa de forma segura. Conoce cómo empezó todo y por qué miles de jugadores nos eligen cada temporada. Somos All Coins Fut.');
     }
 
     return () => {
@@ -29,7 +29,7 @@ export default function AboutUs() {
           {language === "en" ? "About Us" : "Sobre Nosotros"}
         </p>
         <h1 className="text-6xl font-bold text-center text-p1" data-aos="fade-up">
-          Más de 8 años liderando la venta de monedas del fifa.
+          Más de 12 años liderando la venta de monedas del fifa.
         </h1>
 
       <div className="max-w-3xl text-2xl leading-7 text-center flex items-center justify-center flex-col p-6" data-aos="fade-up">
@@ -37,8 +37,7 @@ export default function AboutUs() {
           <>
             <div className="flex flex-col sm:flex-row w-4/5 items-center justify-center gap-4">
               <p className="mb-4 w-full text-left text-3xl sm:p-8">
-                We started with this project <strong>more than 9 years ago</strong>, in FIFA 18. We started with a PlayStation console, 
-                playing and getting our own coins all day, and selling them privately to friends.
+                We started with this project since <strong>FIFA 18</strong>.
               </p>
 
               <img src="Messi.webp" className="w-3/4 sm:w-64 rounded-xl mb-4" alt="Messi" />
@@ -79,7 +78,7 @@ export default function AboutUs() {
               At All Coins Fut you buy fast, safe and with guaranteed personalized attention.<br/>
               1. Proven experience since FIFA 18<br/>
               2. Direct WhatsApp support always active<br/>
-              3. Over one billion coins delivered<br/>
+              3. Over 2.6 billion coins delivered<br/>
               4. Fast deliveries without complications<br/>
               5. Global community of satisfied customers
             </p>
@@ -126,9 +125,7 @@ export default function AboutUs() {
           <>
           <div className="flex flex-col sm:flex-row w-4/5 items-center justify-start gap-4">
                 <p className="mb-4 w-full text-left text-3xl sm:p-8">
-                  Comenzamos con este proyecto hace <strong>más de 9 años</strong>, en FIFA 18. Todo inició con una PlayStation, 
-                  jugando y consiguiendo nuestras propias monedas durante todo el día, para luego venderlas de manera particular 
-                  a amigos y conocidos.
+                  Comenzamos con este proyecto desde <strong>FIFA 18</strong>.
                 </p>
 
                 <img src="Messi.webp" className="w-3/4 sm:w-64 rounded-xl mb-4" alt="Messi" />
@@ -170,7 +167,7 @@ export default function AboutUs() {
               En All Coins Fut compras rápido, seguro y con atención personalizada garantizada.<br/>
               1. Experiencia comprobada desde FIFA 18<br/>
               2. Atención directa por WhatsApp siempre activa<br/>
-              3. Más de mil millones de monedas entregadas<br/>
+              3. Más de 2.600 millones de monedas entregadas<br/>
               4. Envíos rápidos y sin complicaciones<br/>
               5. Comunidad global de clientes satisfechos
             </p>

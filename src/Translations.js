@@ -32,7 +32,7 @@ const translations = {
     "answer3": "We offer various payment methods for each country so you can pay in your local currency. To see the available options, you can check the homepage of our website, where most of them are listed, or ask us directly on WhatsApp!",
     
     "faq4": "Is this safe?",
-    "answer4": "We have been selling coins since FIFA 18, with over 8 years of experience. We have completed over 9,000 sales, and every year we deliver nearly 1 billion coins. If you still have doubts, you can also check our 7+ highlighted stories of 'Customers' on our Instagram, where we have 15k+ followers and showcase just some of our sales!",
+    "answer4": "We have been selling coins since FIFA 18. We have completed over 9,000 sales, and every year we deliver nearly 1 billion coins. If you still have doubts, you can also check our 7+ highlighted stories of 'Customers' on our Instagram, where we have 15k+ followers and showcase just some of our sales!",
     
     "faq5": "Do you also sell players?",
     "answer5": "Yes and no. We don’t sell players directly, but we do sell the amount of coins you need to buy the player you want or complete the SBC you’re aiming for. In other words, you can buy coins and then use them to sign the player you’re looking for.",
@@ -67,9 +67,9 @@ const translations = {
     "sellCoins" : "To start selling your coins, please contact us through WhatsApp.",
     "aboutUs" : "About Us",
     "reason1": "+9.000 sales made",
-    "reason2": "+9 years of experience",
-    "reason3": "+3.400 satisfied customers",
-    "reason4": "+1800 Millon coins delivered",
+    "reason2": "+12 years of experience",
+    "reason3": "+3.800 satisfied customers",
+    "reason4": "+2600 Millon coins delivered",
     "paso" : "STEP"
 },
   es: {
@@ -103,7 +103,7 @@ const translations = {
       "answer3": "Ofrecemos diversos métodos de pago para cada país, para que puedas pagar en tu moneda local. Para ver las opciones disponibles, puedes ver el inicio de nuestra página que allí aparecen la mayoría, o preguntándonos directamente en nuestro Whatsapp!",
 
       "faq4": "¿Esto es algo seguro?",
-      "answer4" : "Vendemos monedas desde el FIFA 18, contando con +8 años de experiencia. Tenemos +9000 ventas realizadas, y todos los años entregamos cerca de 1000 millones de monedas. Por si todavía desconfías, también puedes ver nuestras +7 historias destacadas de “Clientes” en nuestro Instagram, donde contamos con +15k de seguidores, y registramos solo algunas de nuestras ventas!",
+      "answer4" : "Vendemos monedas desde el FIFA 18. Tenemos +9000 ventas realizadas, y todos los años entregamos cerca de 1000 millones de monedas. Por si todavía desconfías, también puedes ver nuestras +7 historias destacadas de “Clientes” en nuestro Instagram, donde contamos con +15k de seguidores, y registramos solo algunas de nuestras ventas!",
 
       "faq5": "¿Vendéis también jugadores??",
       "answer5" : "Si pero no. No vendemos jugadores en sí, pero si vendemos la cantidad de monedas que te puede costar ese jugador que deseas o el SBC que quieras hacer. Es decir, puedes comprar monedas para luego con ellas, fichar ese jugador que buscas para tu plantilla.",
@@ -137,9 +137,9 @@ const translations = {
       "sellCoins" : "Para comenzar a vender tus monedas, por favor contactanos a través de WhatsApp.",
       "aboutUs" : "Sobre Nosotros",
       "reason1": "+9.000 ventas realizadas",
-      "reason2": "+9 años de experiencia",
-      "reason3": "+3.400 clientes satisfechos",
-      "reason4": "+1800 millones de monedas entregadas",
+      "reason2": "+12 años de experiencia",
+      "reason3": "+3.800 clientes satisfechos",
+      "reason4": "+2600 millones de monedas entregadas",
       "paso" : "PASO"
   }
 };

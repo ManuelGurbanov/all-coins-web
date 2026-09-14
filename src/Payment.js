@@ -18,11 +18,11 @@ export default function Payment() {
           Ventajas de comprar coins fifa con total seguridad.
         </h2>
         <p className="text-xl font-semibold text-center mb-12 text-gray-300">
-          En All Coins Fut garantizamos confianza, velocidad y soporte. Comprar monedas fc 25 con nosotros es fácil, seguro y te da beneficios únicos en cada pedido.<br/>
+          En All Coins Fut garantizamos confianza, velocidad y soporte. Comprar monedas con nosotros es fácil, seguro y te da beneficios únicos en cada pedido.<br/>
           1. Atención personalizada por WhatsApp para resolver cualquier duda<br/>
           2. Entregas rápidas en menos de una hora según disponibilidad<br/>
           3. Sin riesgo de baneo usando métodos 100 % seguros<br/>
-          4. Más de 3.400 clientes satisfechos en todo el mundo<br/>
+          4. Más de 3.800 clientes satisfechos en todo el mundo<br/>
           5. Soporte constante durante todo el proceso de compra
         </p>
       </article>

@@ -17,7 +17,7 @@ export default function ShopTutorial() {
             
         {/* Sección para móviles */}
         <div className="md:hidden flex flex-col items-center w-full p-4 h-dvh">
-            <h2 className="mt-4 mb-2 font-black text-black text-4xl text-center text-nowrap">¿Cómo comprar monedas FC 25?</h2>
+            <h2 className="mt-4 mb-2 font-black text-black text-4xl text-center text-nowrap">¿Cómo es el proceso de compra?</h2>
             <div className="flex justify-start gap-4 mb-4">
                 {steps.map((step) => (
                     <button 
@@ -39,7 +39,7 @@ export default function ShopTutorial() {
         <div className="hidden md:flex h-screen w-screen flex-row gap-2 items-center justify-center">
             {/* Sección Izquierda */}
             <section className="w-1/2 h-auto flex flex-col items-center justify-start gap-4 mb-3">
-                <h2 className="font-black text-black text-4xl w-full text-center mt-2">¿Cómo comprar monedas FC 25?</h2>
+                <h2 className="font-black text-black text-4xl w-full text-center mt-2">¿Cómo es el proceso de compra?</h2>
                 {steps.map((step) => (
                     <div 
                         key={step.id} 

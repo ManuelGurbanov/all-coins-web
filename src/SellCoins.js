@@ -67,7 +67,7 @@ export default function SellCoins({openWhatsApp}) {
           </button>
           <div className="max-w-3xl text-2xl leading-7 text-center flex items-center justify-center flex-col p-6" data-aos="fade-up">
             <h2 className="text-6xl font-bold text-center text-p1 mt-12">
-              ¿Cómo funciona el proceso para vender tus monedas fifa 24?
+              ¿Cómo funciona el proceso para vender tus monedas?
             </h2>
             <p className="text-xl font-semibold text-center mb-12 text-gray-300">
               Vender tus monedas de fifa con nosotros es fácil, seguro y rápido. Solo sigue estos pasos y recibirás tu pago en minutos.<br/>
